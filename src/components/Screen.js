@@ -1,12 +1,21 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import Text from 'src/components/Text';
+import PropTypes from 'prop-types';
 
-export default class Battle extends React.Component {
+export default class extends React.Component {
+  static propTypes = {
+    children: PropTypes.node,
+  };
+
+  static defaultProps = {
+    children: null,
+  };
+
   render() {
+    const {children} = this.props;
     return (
       <View style={styles.wrapper}>
-        <Text text="battle.title" style={styles.text} />
+        {children}
       </View>
     );
   }
@@ -17,9 +26,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  text: {
-    color: '#fff',
-    fontWeight: 'bold',
+    backgroundColor: '#fff',
   },
 });

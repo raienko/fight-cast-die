@@ -1,8 +1,8 @@
 import React from 'react';
-import Root from 'src/screens/Root';
+import Navigation from 'src/screens/Navigation';
 
 export default class extends React.Component {
   render() {
-    return <Root />;
+    return <Navigation />;
   }
 }

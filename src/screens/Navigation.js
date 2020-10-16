@@ -1,0 +1,52 @@
+import 'react-native-gesture-handler';
+import {enableScreens} from 'react-native-screens';
+enableScreens();
+
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+import SignIn from 'src/screens/SignIn';
+import Home from 'src/screens/Home';
+import SignUp from 'src/screens/SignUp';
+import Settings from 'src/screens/Settings';
+import Battle from 'src/screens/Battle';
+import Character from 'src/screens/Character';
+import Store from 'src/screens/Store';
+import World from 'src/screens/World';
+
+const Stack = createStackNavigator();
+
+const Auth = () => (
+  <Stack.Navigator mode="modal" headerMode="none">
+    <Stack.Screen name="Home" component={Home} />
+    <Stack.Screen name="SignIn" component={SignIn} />
+    <Stack.Screen name="SignUp" component={SignUp} />
+    <Stack.Screen name="Settings" component={Settings} />
+  </Stack.Navigator>
+);
+
+const Main = () => (
+  <Stack.Navigator mode="modal" headerMode="none">
+    <Stack.Screen name="World" component={World} />
+    <Stack.Screen name="Character" component={Character} />
+    <Stack.Screen name="Battle" component={Battle} />
+    <Stack.Screen name="Settings" component={Settings} />
+    <Stack.Screen name="Store" component={Store} />
+  </Stack.Navigator>
+);
+
+export default () => {
+  let Navigator = Auth;
+
+  const authorized = false;
+  if (authorized) {
+    Navigator = Main;
+  }
+
+  return (
+    <NavigationContainer>
+      <Navigator />
+    </NavigationContainer>
+  );
+};
