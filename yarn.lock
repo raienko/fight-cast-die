@@ -5873,6 +5873,11 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
+rn-units@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/rn-units/-/rn-units-0.0.7.tgz#d0f59c19439f727507f1cf9a2b00dd4f34827dbf"
+  integrity sha512-4OnEbSa9NyOzIcQdNvUrP97cM6saqUTWao+41H6QJuu2A6QPqpRQ7dr/knX7JgQzNOcGBgaNxaiSwaar0O/tCw==
+
 rsvp@^4.8.4:
   version "4.8.5"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
