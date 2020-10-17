@@ -6,6 +6,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
+import Loading from 'src/screens/Loading';
 import SignIn from 'src/screens/SignIn';
 import Home from 'src/screens/Home';
 import SignUp from 'src/screens/SignUp';
@@ -14,8 +15,15 @@ import Battle from 'src/screens/Battle';
 import Character from 'src/screens/Character';
 import Store from 'src/screens/Store';
 import World from 'src/screens/World';
+import {useStore} from 'src/store';
 
 const Stack = createStackNavigator();
+
+const Initial = () => (
+  <Stack.Navigator mode="modal" headerMode="none">
+    <Stack.Screen name="Loading" component={Loading} />
+  </Stack.Navigator>
+);
 
 const Auth = () => (
   <Stack.Navigator mode="modal" headerMode="none">
@@ -37,10 +45,15 @@ const Main = () => (
 );
 
 export default () => {
-  let Navigator = Auth;
+  const store = useStore();
 
-  const authorized = false;
-  if (authorized) {
+  let Navigator = Initial;
+
+  if (store.ready) {
+    Navigator = Auth;
+  }
+
+  if (store.token) {
     Navigator = Main;
   }
 

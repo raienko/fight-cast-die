@@ -1,16 +1,25 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import Text from 'src/components/Text';
+import Button from 'src/components/Button';
+import * as storeActions from 'src/store/actions';
 
-export default class Settings extends React.Component {
-  render() {
-    return (
-      <View style={styles.wrapper}>
-        <Text text="settings.title" />
-      </View>
-    );
-  }
-}
+export default () => {
+  const navigation = useNavigation();
+
+  const logout = () => {
+    navigation.pop();
+    storeActions.logout();
+  };
+
+  return (
+    <View style={styles.wrapper}>
+      <Text text="settings.title" />
+      <Button text="logout" onPress={logout} />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   wrapper: {
