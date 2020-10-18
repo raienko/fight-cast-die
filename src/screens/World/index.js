@@ -1,18 +1,18 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import Text from 'src/components/Text';
-import Button from 'src/components/Button';
+import Terrain from './Terrain';
+import Hud from './Hud';
+import PlayersController from './PlayersController';
 
 export default () => {
-  const navigation = useNavigation();
   return (
     <View style={styles.wrapper}>
-      <Text text="world.title" />
-      <Button text="settings" onPress={() => navigation.navigate('Settings')} />
+      <Terrain />
+      <PlayersController />
+      <Hud />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   wrapper: {
