@@ -1,23 +1,18 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import Screen from 'src/components/Screen';
 import Terrain from './Terrain';
 import Hud from './Hud';
 import PlayersController from './PlayersController';
+import ViewPort from './ViewPort';
 
 export default () => {
   return (
-    <View style={styles.wrapper}>
-      <Terrain />
-      <PlayersController />
+    <Screen>
+      <ViewPort>
+        <Terrain />
+        <PlayersController />
+      </ViewPort>
       <Hud />
-    </View>
+    </Screen>
   );
 };
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
