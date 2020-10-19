@@ -1,29 +1,45 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import PropTypes from 'prop-types';
+import React, {useEffect, useRef} from 'react';
+import {View, StyleSheet, Animated, Easing} from 'react-native';
+import {rem} from 'rn-units';
 
-export default class extends React.Component {
-  static propTypes = {
-    children: PropTypes.any,
+export default ({children}) => {
+  const offset = useRef(new Animated.ValueXY({x: 0, y: 0})).current;
+
+  useEffect(() => {
+    setTimeout(() => {
+      move(100, -100);
+    }, 2000);
+  }, []);
+
+  const move = (x, y) => {
+    Animated.timing(offset, {
+      toValue: {
+        x: rem(x),
+        y: rem(y),
+      },
+      duration: 3000,
+      easing: Easing.linear,
+      useNativeDriver: true,
+    }).start();
   };
 
-  static defaultProps = {
-    children: null,
+  const position = {
+    transform: offset.getTranslateTransform(),
   };
 
-  render() {
-    const {children} = this.props;
-    return (
-      <View style={styles.wrapper}>
+  return (
+    <View style={styles.wrapper}>
+      <Animated.View style={[styles.container, position]}>
         {children}
-      </View>
-    );
-  }
-}
+      </Animated.View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   wrapper: {
     width: '100%',
     height: '100%',
+    overflow: 'hidden',
   },
 });
