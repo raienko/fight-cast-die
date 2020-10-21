@@ -1,15 +1,9 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import {View, StyleSheet, Animated, Easing} from 'react-native';
 import {rem} from 'rn-units';
 
 export default ({children}) => {
   const offset = useRef(new Animated.ValueXY({x: 0, y: 0})).current;
-
-  useEffect(() => {
-    setTimeout(() => {
-      move(100, -100);
-    }, 2000);
-  }, []);
 
   const move = (x, y) => {
     Animated.timing(offset, {

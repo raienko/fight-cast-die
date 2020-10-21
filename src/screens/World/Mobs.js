@@ -16,7 +16,7 @@ export default function Terrain({children}) {
 
 const styles = StyleSheet.create({
   background: {
-    width: rem(666),
-    height: rem(666),
+    width: rem(960),
+    height: rem(960),
   },
 });
