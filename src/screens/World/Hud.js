@@ -10,7 +10,7 @@ export default () => {
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
   return (
-    <View style={[styles.wrapper, insets]}>
+    <View style={[styles.wrapper, insets]} pointerEvents="box-none">
       <Text text="world.title" style={styles.title} />
       <Button
         text="settings"

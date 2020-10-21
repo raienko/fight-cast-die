@@ -1,5 +1,7 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {Animated, StyleSheet, Easing} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import Touchable from 'rn-units/components/Touchable';
 import PlayerModel from 'src/models/Player';
 import Position from 'src/models/Position';
 import Player from './Player';
@@ -15,6 +17,7 @@ export default () => {
   const [moving, setMoving] = useState([]);
   const positions = useRef({}).current;
   const movements = useRef({}).current;
+  const navigation = useNavigation();
 
   const fetchPlayers = async () => {
     // do server request
@@ -72,7 +75,11 @@ export default () => {
     const isMoving = moving.includes(player.id);
     return (
       <Animated.View style={[styles.container, position]} key={player.id}>
-        <Player name={player.name} isMoving={isMoving} />
+        <Touchable onPress={() => {
+          navigation.navigate('Settings');
+        }}>
+          <Player name={player.name} isMoving={isMoving} />
+        </Touchable>
       </Animated.View>
     );
   };

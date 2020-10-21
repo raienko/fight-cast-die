@@ -2,14 +2,10 @@ import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import {rem} from 'rn-units';
 
-export default function Terrain({children}) {
+export default function Mobs({children}) {
   return (
     <View style={styles.wrapper}>
-      <Image
-        style={styles.background}
-        resizeMode="stretch"
-        source={{ uri: 'https://s3.amazonaws.com/texturemax_th/terrain/grass-and-straw-terrain/grass-and-straw-terrain_0057_03_S_enl.jpg' }}
-      />
+
     </View>
   );
 }
