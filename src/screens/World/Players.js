@@ -1,7 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react';
-import {Animated, StyleSheet, Easing} from 'react-native';
+import {Animated, StyleSheet, Easing, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import Touchable from 'rn-units/components/Touchable';
 import PlayerModel from 'src/models/Player';
 import Position from 'src/models/Position';
 import Player from './Player';
@@ -70,22 +69,29 @@ export default () => {
     }
   }, [players]);
 
+  const handlePlayerPressed = () => {
+    console.warn('HER');
+    return navigation.navigate('Settings');
+  };
+
   const renderPlayer = (player) => {
     const position = {transform: positions[player.id].getTranslateTransform()};
     const isMoving = moving.includes(player.id);
     return (
       <Animated.View style={[styles.container, position]} key={player.id}>
-        <Touchable onPress={() => {
-          navigation.navigate('Settings');
-        }}>
+        <TouchableOpacity onPress={handlePlayerPressed}>
           <Player name={player.name} isMoving={isMoving} />
-        </Touchable>
+        </TouchableOpacity>
       </Animated.View>
     );
   };
 
   return (
-    <>{players.map(renderPlayer)}</>
+    <>
+      {
+        players.map(renderPlayer)
+      }
+    </>
   );
 };
 
@@ -94,5 +100,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     top: 0,
+    height: 50,
+    width: 50,
   },
 });

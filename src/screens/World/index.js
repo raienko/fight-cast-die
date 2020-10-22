@@ -1,5 +1,6 @@
 import React from 'react';
 import Screen from 'src/components/Screen';
+import * as levels from 'src/levels';
 import Terrain from './Terrain';
 import Hud from './Hud';
 import Players from './Players';
@@ -12,7 +13,7 @@ export default () => {
   return (
     <Screen>
       <ViewPort>
-        <Terrain />
+        <Terrain level={levels.forest_0} />
         <Objects />
         <Mobs />
         <NPCs />

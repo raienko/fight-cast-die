@@ -1,3 +1,3 @@
 import { rem } from 'rn-units';
 
-export const cellSize = rem(10);
+export const cellSize = rem(30);
