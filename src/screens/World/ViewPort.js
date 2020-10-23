@@ -1,10 +1,10 @@
-import React, {useRef, useState, useEffect} from 'react';
-import {ScrollView} from 'react-native';
+import React, {useRef, useState} from 'react';
+import {ScrollView, StyleSheet, View} from 'react-native';
 
 export default ({children}) => {
   const horizontalPlane = useRef();
   const verticalPlane = useRef();
-  const [scrollable, setScrollable] = useState(false);
+  const [scrollable, setScrollable] = useState(true);
 
   const moveCamera = (x, y) => {
     horizontalPlane.current.scrollTo({x});
@@ -13,27 +13,29 @@ export default ({children}) => {
 
   const toggleScroll = (value) => setScrollable(value);
 
-  useEffect(() => {
-    setTimeout(() => {
-      moveCamera(300, 500);
-      toggleScroll(true);
-    }, 3000);
-  }, []);
-
   return (
-    <ScrollView
-      bounces={false}
-      ref={verticalPlane}
-      scrollEnabled={scrollable}
-      showsVerticalScrollIndicator={false}>
+    <View style={styles.wrapper}>
       <ScrollView
-        horizontal
         bounces={false}
-        ref={horizontalPlane}
+        ref={verticalPlane}
         scrollEnabled={scrollable}
-        showsHorizontalScrollIndicator={false}>
-        {children}
+        showsVerticalScrollIndicator={false}>
+        <ScrollView
+          horizontal
+          bounces={false}
+          ref={horizontalPlane}
+          scrollEnabled={scrollable}
+          showsHorizontalScrollIndicator={false}>
+          {children}
+        </ScrollView>
       </ScrollView>
-    </ScrollView>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    backgroundColor: '#000',
+  },
+});

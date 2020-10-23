@@ -2,8 +2,10 @@ import React from 'react';
 import {Image, View, StyleSheet} from 'react-native';
 import {cellSize} from 'src/constants';
 import mobs from 'src/mobs';
+import {useLevel} from './Level';
 
-export default function Mobs({level}) {
+export default function Mobs() {
+  const {level} = useLevel();
   return level.mobsmap.map((mob, index) => {
     const position = {
       left: mob.x * cellSize,
