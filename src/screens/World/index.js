@@ -10,12 +10,13 @@ import NPCs from './NPCs';
 import Objects from './Objects';
 
 export default () => {
+  const currentLevel = levels.forest_0;
   return (
     <Screen>
       <ViewPort>
-        <Terrain level={levels.forest_0} />
+        <Terrain level={currentLevel} />
         <Objects />
-        <Mobs />
+        <Mobs level={currentLevel} />
         <NPCs />
         <Players />
       </ViewPort>

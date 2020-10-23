@@ -1,18 +1,37 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
-import {rem} from 'rn-units';
+import {Image, View, StyleSheet} from 'react-native';
+import {cellSize} from 'src/constants';
+import mobs from 'src/mobs';
 
-export default function Mobs({children}) {
-  return (
-    <View style={styles.wrapper}>
+export default function Mobs({level}) {
+  return level.mobsmap.map((mob, index) => {
+    const position = {
+      left: mob.x * cellSize,
+      top: mob.y * cellSize,
+    };
 
-    </View>
-  );
+    const mobInfo = mobs[mob.type];
+
+    return (
+      <View key={`${index}`} style={[styles.wrapper, position]}>
+        <Image style={styles.tile} source={mobInfo.tile} resizeMode="contain" />
+      </View>
+    );
+  });
 }
 
 const styles = StyleSheet.create({
-  background: {
-    width: rem(960),
-    height: rem(960),
+  wrapper: {
+    position: 'absolute',
+    width: cellSize,
+    height: cellSize,
+  },
+  tile: {
+    width: cellSize * 2,
+    height: cellSize * 2,
+    transform: [
+      { translateX: -cellSize },
+      { translateY: -cellSize },
+    ],
   },
 });
