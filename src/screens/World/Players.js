@@ -4,11 +4,12 @@ import {useNavigation} from '@react-navigation/native';
 import PlayerModel from 'src/models/Player';
 import Position from 'src/models/Position';
 import Player from './Player';
+import {cellSize} from 'src/constants';
 
 const fakePlayers = [
-  new PlayerModel('player_0', 'Johny', {x: 0, y: 200}),
-  new PlayerModel('player_1', 'Ive', {x: 100, y: 100}),
-  new PlayerModel('player_2', 'Spartak', {x: 200, y: 250}),
+  new PlayerModel('player_0', 'Johny', {x: 0, y: 5}),
+  new PlayerModel('player_1', 'Ive', {x: 5, y: 3}),
+  new PlayerModel('player_2', 'Spartak', {x: 2, y: 2}),
 ];
 
 export default () => {
@@ -62,9 +63,9 @@ export default () => {
 
   useEffect(() => {
     if (players.length) {
-      movePlayer(players[0].id, [{x: 100, y: 100},{x: 150, y: 150},{x: 200, y: 300}]);
+      movePlayer(players[0].id, [{x: 10, y: 10},{x: 12, y: 28},{x: 12, y: 15}]);
       setTimeout(() => {
-        movePlayer(players[0].id, [{x: 100, y: 100},{x: 150, y: 150},{x: 200, y: 300}]);
+        movePlayer(players[0].id, [{x: 13, y: 13},{x: 12, y: 12},{x: 11, y: 11}]);
       }, 5000);
     }
   }, [players]);
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     top: 0,
-    height: 50,
-    width: 50,
+    height: cellSize,
+    width: cellSize,
   },
 });

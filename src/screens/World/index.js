@@ -8,6 +8,7 @@ import Mobs from './Mobs';
 import NPCs from './NPCs';
 import Objects from './Objects';
 import Level from './Level';
+import GridHighlight from './GridHighlight';
 
 export default () => {
   return (
@@ -15,6 +16,7 @@ export default () => {
       <Level>
         <ViewPort>
           <Terrain />
+          <GridHighlight />
           <Objects />
           <Mobs />
           <NPCs />
