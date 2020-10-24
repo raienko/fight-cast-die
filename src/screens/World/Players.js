@@ -5,9 +5,11 @@ import PlayerModel from 'src/models/Player';
 import Player from './Player';
 import {cellSize} from 'src/constants';
 import AnimatedPosition from 'src/models/AnimatedPosition';
+import Pathfinder from 'src/utils/Pathfinder';
+import {useLevel} from './Level';
 
 const fakePlayers = [
-  new PlayerModel('player_0', 'Johny', {x: 0, y: 5}),
+  new PlayerModel('player_0', 'Johny', {x: 0, y: 22}),
   new PlayerModel('player_1', 'Ive', {x: 5, y: 3}),
   new PlayerModel('player_2', 'Spartak', {x: 2, y: 2}),
 ];
@@ -16,6 +18,8 @@ export default () => {
   const [players, setPlayers] = useState([]);
   const [moving, setMoving] = useState([]);
   const positions = useRef({}).current;
+  const {level} = useLevel();
+  const pathFinder = useRef(new Pathfinder()).current;
   const navigation = useNavigation();
 
   const fetchPlayers = async () => {
@@ -42,19 +46,20 @@ export default () => {
   };
 
   useEffect(() => {
+    pathFinder.setup(level.tilemap);
     fetchPlayers();
   }, []);
 
   useEffect(() => {
     if (players.length) {
-      movePlayer('player_0', [
-        {x: 5, y: 10},
-        {x: 3, y: 6},
-        {x: 7, y: 6},
-        {x: 10, y: 10},
-        {x: 3, y: 2},
-        {x: 5, y: 7},
-      ]);
+      const player = players[0];
+      const path = pathFinder.findPath(
+        player.position.x,
+        player.position.y,
+        15,
+        29,
+      );
+      movePlayer(player.id, path);
     }
   }, [players]);
 
@@ -71,7 +76,9 @@ export default () => {
     return setMoving(moving.filter(i => i !== id));
   };
 
-  const handlePlayerPressed = () => navigation.navigate('Settings');
+  const handlePlayerPressed = () => {
+
+  };
 
   const renderPlayer = (player) => {
     const offset = {transform: positions[player.id].offset};
