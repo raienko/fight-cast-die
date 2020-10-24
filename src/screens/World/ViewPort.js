@@ -18,12 +18,14 @@ export default ({children}) => {
       <ScrollView
         bounces={false}
         ref={verticalPlane}
+        removeClippedSubviews
         scrollEnabled={scrollable}
         showsVerticalScrollIndicator={false}>
         <ScrollView
           horizontal
           bounces={false}
           ref={horizontalPlane}
+          removeClippedSubviews
           scrollEnabled={scrollable}
           showsHorizontalScrollIndicator={false}>
           {children}
