@@ -16,7 +16,11 @@ export default function Mobs() {
 
     return (
       <View key={`${index}`} style={[styles.wrapper, position]}>
-        <Image style={styles.tile} source={mobInfo.tile} resizeMode="contain" />
+        <Image
+          style={styles.tile}
+          source={mobInfo.tile}
+          resizeMode="contain"
+        />
       </View>
     );
   });
@@ -32,8 +36,8 @@ const styles = StyleSheet.create({
     width: cellSize * 2,
     height: cellSize * 2,
     transform: [
-      { translateX: -cellSize },
-      { translateY: -cellSize },
+      { translateX: -cellSize / 2 },
+      { translateY: -cellSize / 2 },
     ],
   },
 });

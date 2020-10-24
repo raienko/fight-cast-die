@@ -1,15 +1,14 @@
 import React from 'react';
 import {StyleSheet, Animated} from 'react-native';
-import {rem} from 'rn-units';
-import Touchable from 'rn-units/components/Touchable';
 import PropTypes from 'prop-types';
+import AnimatedPosition from 'src/models/AnimatedPosition';
 
-const Unit = () => {
+const Unit = ({children}) => {
+  const position = new AnimatedPosition(0, 0);
+  const offset = {transform: position.offset.getTranslateTransform()};
   return (
-    <Animated.View>
-      <Touchable>
-        {}
-      </Touchable>
+    <Animated.View style={[styles.wrapper, offset]}>
+      {children}
     </Animated.View>
   );
 };
@@ -26,6 +25,8 @@ export default Unit;
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
+    position: 'absolute',
+    left: 0,
+    top: 0,
   },
 });

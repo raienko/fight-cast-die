@@ -15,11 +15,8 @@ const Level = ({children}) => {
   };
 
   useEffect(() => {
-    changeLevel('forest_0');
+    changeLevel('forest_1');
     setLoading(false);
-    setTimeout(() => {
-      changeLevel('forest_1');
-    }, 9000);
   }, []);
 
   return (
