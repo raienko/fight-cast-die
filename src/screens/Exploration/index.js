@@ -1,7 +1,7 @@
 import React from 'react';
 import Loading from './Loading';
 import Level from './Level';
-import ViewPort from './ViewPort';
+import Viewport from './Viewport';
 import Character from './Character';
 import Controller from './Controller';
 import Terrain from './Terrain';
@@ -9,16 +9,16 @@ import Mobs from './Mobs';
 
 export default () => {
   return (
-    <ViewPort>
-      <Loading>
-        <Level>
-          <Terrain />
-          <Mobs />
-          <Character>
+    <Character>
+      <Viewport>
+        <Loading>
+          <Level>
+            <Terrain />
+            <Mobs />
             <Controller />
-          </Character>
-        </Level>
-      </Loading>
-    </ViewPort>
+          </Level>
+        </Loading>
+      </Viewport>
+    </Character>
   );
 };

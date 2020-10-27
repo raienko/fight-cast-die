@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 
 const CharacterContext = React.createContext();
@@ -6,8 +6,15 @@ const CharacterContext = React.createContext();
 export const useCharacter = () => useContext(CharacterContext);
 
 const Character = ({children}) => {
+  const character = {
+    name: 'Johny',
+    area: 'forest_1',
+    x: 7,
+    y: 19,
+  };
+
   return (
-    <CharacterContext.Provider>
+    <CharacterContext.Provider value={{character}}>
       {children}
     </CharacterContext.Provider>
   );
