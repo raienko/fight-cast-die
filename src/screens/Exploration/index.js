@@ -6,6 +6,7 @@ import Character from './Character';
 import Controller from './Controller';
 import Terrain from './Terrain';
 import Mobs from './Mobs';
+import Player from './Player';
 
 export default () => {
   return (
@@ -15,6 +16,7 @@ export default () => {
           <Level>
             <Terrain />
             <Mobs />
+            <Player />
             <Controller />
           </Level>
         </Loading>
