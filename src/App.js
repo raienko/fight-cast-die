@@ -3,9 +3,11 @@ import Navigation from 'src/screens/Navigation';
 import Store from 'src/store';
 import User from 'src/user';
 import GameMaster from 'src/gameMaster';
+import Exploration from 'src/screens/Exploration';
 
 export default class extends React.Component {
   render() {
+    return <Exploration />
     return (
       <Store>
         <User>
