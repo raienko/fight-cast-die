@@ -1,5 +1,8 @@
 import React, {useRef, useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
+import ViewportContext from './Context';
+
+export const useViewportContext = () => React.useContext(ViewportContext);
 
 export default ({children}) => {
   const horizontalPlane = useRef();
@@ -28,7 +31,9 @@ export default ({children}) => {
           removeClippedSubviews
           scrollEnabled={scrollable}
           showsHorizontalScrollIndicator={false}>
-          {children}
+          <ViewportContext.Provider value={{moveCamera, toggleScroll}}>
+            {children}
+          </ViewportContext.Provider>
         </ScrollView>
       </ScrollView>
     </View>
