@@ -1,6 +1,6 @@
 import React from 'react';
 import Screen from 'src/components/Screen';
-import Viewport from 'src/components/Viewport';
+import Viewport from './Viewport';
 import Terrain from './Terrain';
 import Hud from './Hud';
 import Players from './Players';

@@ -1,6 +1,7 @@
 import React, {useRef, useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import ViewportContext from './Context';
+
+const ViewportContext = React.createContext();
 
 export const useViewportContext = () => React.useContext(ViewportContext);
 
