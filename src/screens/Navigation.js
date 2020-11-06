@@ -11,10 +11,10 @@ import SignIn from 'src/screens/SignIn';
 import Home from 'src/screens/Home';
 import SignUp from 'src/screens/SignUp';
 import Settings from 'src/screens/Settings';
+import Exploration from 'src/screens/Exploration';
 import Battle from 'src/screens/Battle';
 import Character from 'src/screens/Character';
 import Store from 'src/screens/Store';
-import World from 'src/screens/World';
 import {useStore} from 'src/store';
 
 const Stack = createStackNavigator();
@@ -36,7 +36,7 @@ const Auth = () => (
 
 const Main = () => (
   <Stack.Navigator mode="modal" headerMode="none">
-    <Stack.Screen name="World" component={World} />
+    <Stack.Screen name="Exploration" component={Exploration} />
     <Stack.Screen name="Character" component={Character} />
     <Stack.Screen name="Battle" component={Battle} />
     <Stack.Screen name="Settings" component={Settings} />

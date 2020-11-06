@@ -1,34 +1,45 @@
 import React from 'react';
-import {Animated, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import Text from 'src/components/Text';
 import {cellSize} from 'src/constants';
-import {useCharacter} from './Character';
 
-export default function Player() {
-  const {character} = useCharacter();
+export const playerTileSize = cellSize;
+
+export default ({player}) => {
   return (
-    <Animated.View style={styles.wrapper}>
-      <Text value={character.name} style={styles.name} />
-    </Animated.View>
+    <View style={styles.wrapper}>
+      <Text value={player.name} style={styles.title} />
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   wrapper: {
-    width: cellSize,
-    height: cellSize,
+    width: playerTileSize,
+    height: playerTileSize,
+    alignItems: 'center',
+    justifyContent: 'center',
     position: 'absolute',
-    borderRadius: cellSize / 2,
-    backgroundColor: 'green',
-    top: 5 * cellSize,
-    left: 5 & cellSize,
+    borderWidth: 1,
+    borderRadius: playerTileSize / 2,
+    backgroundColor: '#ecb508',
   },
-  name: {
-    color: 'red',
+  title: {
     position: 'absolute',
-    alignSelf: 'center',
-    top: -cellSize / 2,
     width: cellSize * 2,
     textAlign: 'center',
+    top: -20,
+    alignSelf: 'center',
+    fontWeight: 'bold',
+    color: '#00aeff',
+    textShadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    textShadowRadius: 2,
+    textShadowColor: '#000',
+  },
+  moving: {
+    backgroundColor: '#acf583',
   },
 });

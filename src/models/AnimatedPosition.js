@@ -35,22 +35,21 @@ export default class AnimatedPosition {
   move = async (path, speed = 1) => {
     this.stop();
 
-    this._animation = Animated.sequence(path.map((point, index) => {
-        const currentX = index ? path[index - 1].x : this.x;
-        const currentY = index ? path[index - 1].y : this.y;
-        const distance = getDistance(currentX, currentY, point.x, point.y);
-        const duration = (distance * cellSize * 10) * speed;
-        return Animated.timing(this._offset, {
-          toValue: getCoordinates(point.x, point.y),
-          easing: Easing.linear,
-          duration,
-          useNativeDriver: true,
-        });
-      }),
-    );
+    const animations = path.map((point, index) => {
+      const currentX = index ? path[index - 1].x : this.x;
+      const currentY = index ? path[index - 1].y : this.y;
+      const distance = getDistance(currentX, currentY, point.x, point.y);
+      const duration = (distance * cellSize * 10) * speed;
+      return Animated.timing(this._offset, {
+        toValue: getCoordinates(point.x, point.y),
+        easing: Easing.linear,
+        duration,
+        useNativeDriver: true,
+      });
+    });
 
-    this._animation.start();
-    return;
+    this._animation = Animated.sequence(animations);
+
     return new Promise((resolve) => this._animation.start(resolve));
   };
 
