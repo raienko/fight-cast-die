@@ -4,10 +4,15 @@ import Store from 'src/store';
 import User from 'src/user';
 import GameMaster from 'src/gameMaster';
 import Exploration from 'src/screens/Exploration';
+import Test from './utils/Test';
 
 export default class extends React.Component {
   render() {
-    return <Exploration />
+    return <>
+      <Test.Provider>
+        <Exploration />
+      </Test.Provider>
+    </>
     return (
       <Store>
         <User>
