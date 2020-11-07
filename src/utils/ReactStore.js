@@ -1,29 +1,26 @@
 import React, {useReducer, useEffect, useContext} from 'react';
 
-export default (reducer, initialState) => {
-  const store = {
-    state: null,
-    dispatch: () => {},
-    Context: null,
-    Provider: () => {},
-    Consumer: () => {},
-    useStore: () => {},
-  };
+export default class ReactStore {
+  Context = null;
+  Provider = () => null;
+  Consumer = () => null;
+  useStore = () => {};
+  state = null;
+  dispatch = () => {};
 
-  const Context = React.createContext();
-  const Provider = (params) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
+  constructor(reducer, initialState) {
+    const Context = React.createContext();
 
-    store.state = state;
-    store.dispatch = dispatch;
+    const Provider = (params) => {
+      const [state, dispatch] = useReducer(reducer, initialState);
+      this.state = state;
+      this.dispatch = dispatch;
+      return <Context.Provider {...params} value={{state, dispatch}} />;
+    };
 
-    return <Context.Provider {...params} value={{state, dispatch}} />;
-  };
-
-  store.Context = Context;
-  store.Provider = Provider;
-  store.Consumer = Context.Consumer;
-  store.useStore = () => useContext(Context);
-
-  return store;
-};
+    this.Context = Context;
+    this.Provider = Provider;
+    this.Consumer = Context.Consumer;
+    this.useStore = () => useContext(Context);
+  }
+}
