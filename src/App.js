@@ -5,6 +5,7 @@ import User from 'src/user';
 import GameMaster from 'src/gameMaster';
 import Exploration from 'src/screens/Exploration';
 import Test from './utils/Test';
+import ReactStoreWithHydration from './utils/ReactStoreWithHydration';
 
 export default class extends React.Component {
   render() {

@@ -1,13 +1,15 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-export default new (class Storage {
-  setItem(key, value, options) {
+class LocalStorage {
+  setItem(key, value) {
     return AsyncStorage.setItem(key, JSON.stringify(value));
   }
 
-  getItem(key, options) {
+  getItem(key) {
     return AsyncStorage.getItem(key).then((data) => {
       return data ? JSON.parse(data) : data;
     });
   }
-})();
+}
+
+export default new LocalStorage();

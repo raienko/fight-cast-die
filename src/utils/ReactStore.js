@@ -1,4 +1,4 @@
-import React, {useReducer, useEffect, useContext} from 'react';
+import React, {useReducer, useContext} from 'react';
 
 export default class ReactStore {
   Context = null;
@@ -8,13 +8,16 @@ export default class ReactStore {
   state = null;
   dispatch = () => {};
 
-  constructor(reducer, initialState) {
+  constructor(reducer, initialState, onStateChange) {
     const Context = React.createContext();
 
     const Provider = (params) => {
       const [state, dispatch] = useReducer(reducer, initialState);
       this.state = state;
       this.dispatch = dispatch;
+      if (onStateChange) {
+        onStateChange(state);
+      }
       return <Context.Provider {...params} value={{state, dispatch}} />;
     };
 
