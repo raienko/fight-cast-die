@@ -4,24 +4,18 @@ import Store from 'src/store';
 import User from 'src/user';
 import GameMaster from 'src/gameMaster';
 import Exploration from 'src/screens/Exploration';
-import Test from './utils/Test';
-import ReactStoreWithHydration from './utils/ReactStoreWithHydration';
 
 export default class extends React.Component {
   render() {
-    return <>
-      <Test.Provider>
-        <Exploration />
-      </Test.Provider>
-    </>
     return (
-      <Store>
-        <User>
-          <GameMaster>
-            <Navigation />
-          </GameMaster>
-        </User>
-      </Store>
+      <Store.Provider>
+        <Exploration />
+        {/*<User>*/}
+        {/*  <GameMaster>*/}
+        {/*    <Navigation />*/}
+        {/*  </GameMaster>*/}
+        {/*</User>*/}
+      </Store.Provider>
     );
   }
 }

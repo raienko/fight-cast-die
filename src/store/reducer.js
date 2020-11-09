@@ -6,6 +6,7 @@ export const initialState = {
 };
 
 export default (state, action) => {
+  console.log('ACTION', action.type);
   switch (action.type) {
     case types.AUTHORIZE:
       return {
@@ -17,15 +18,9 @@ export default (state, action) => {
         ...state,
         token: null,
       };
-    case types.REHYDRATE:
-      return {
-        ...initialState,
-        ...action.payload.state,
-        ready: true,
-      };
     default:
       return {
-        ...initialState,
+        ...state,
       };
   }
 };

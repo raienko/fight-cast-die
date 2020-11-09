@@ -8,15 +8,22 @@ import Terrain from './Terrain';
 import Mobs from './Mobs';
 import Players from './Players';
 import GridHighlight from './GridHighlight';
-import Test from 'src/utils/Test';
+import globalStore from 'src/store';
+import * as globalActions from 'src/store/actions';
 
 export default () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [character, setCharacter] = useState(null);
   const [level, setLevel] = useState([]);
-  const store = Test.useStore();
-  console.log({ store });
+  const { state } = globalStore.useStore();
+
+  useEffect(() => {
+    if (state.rehydrated) {
+      console.log('I am rehydrated', state);
+      globalActions.authWithPhoneNumber();
+    }
+  }, [state]);
   // const start = async () => {
   //   const currentCharacter = await fetchCurrentCharacter();
   //   if (!currentCharacter) {
