@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Button from 'src/components/Button';
 import Loading from './Loading';
 import Level from './Level';
 import Viewport from './Viewport';
@@ -17,13 +18,6 @@ export default () => {
   const [character, setCharacter] = useState(null);
   const [level, setLevel] = useState([]);
   const store = globalStore.useStore();
-  console.log({ state: store.state });
-  useEffect(() => {
-    if (store.state.rehydrated && !store.state.token) {
-      console.log('Auth!');
-      globalActions.authWithPhoneNumber();
-    }
-  }, [store]);
   // const start = async () => {
   //   const currentCharacter = await fetchCurrentCharacter();
   //   if (!currentCharacter) {

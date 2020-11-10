@@ -6,28 +6,35 @@ const storage = new ScopedStorage('hydrated');
 
 export const actions = {
   rehydrate: 'rehydrate',
+  reset: 'reset',
 };
 
-const rehydratable = (defaultReducer) => (state, action) => {
-  if (action.type === actions.rehydrate) {
-    return {
-      ...action.payload.state,
-      rehydrated: true,
-    };
+const rehydratable = (defaultReducer, initialState) => (state, action) => {
+  switch (action.type) {
+    case actions.rehydrate:
+      return {
+        ...action.payload.state,
+        rehydrated: true,
+      };
+    case actions.reset:
+      return {
+        ...initialState,
+      };
+    default:
+      return defaultReducer(state, action);
   }
-  return defaultReducer(state, action);
 };
 
 export default class ReactStoreWithHydration extends ReactStore {
   id;
 
   constructor(id, reducer, initialState) {
-    const rehydratableReducer = rehydratable(reducer);
+    const rehydratableReducer = rehydratable(reducer, initialState);
     super(rehydratableReducer, initialState);
     this.id = id;
   }
 
-  async rehydrate(initialState, dispatch) {
+  rehydrate = async (initialState, dispatch) => {
     const storedState = await storage.getItem(this.id);
     return dispatch({
       type: actions.rehydrate,
@@ -35,15 +42,19 @@ export default class ReactStoreWithHydration extends ReactStore {
         state: storedState || initialState,
       },
     });
-  }
+  };
 
-  hydrate(state) {
+  hydrate = (state) => {
     return storage.setItem(this.id, state);
-  }
+  };
 
-  Provider1 = (params) => {
+  reset = () => {
+    return this.dispatch({type: actions.reset});
+  };
+
+  RehydratableProvider = (props) => {
     return this.Provider({
-      ...params,
+      ...props,
       onDidMount: this.rehydrate,
       onStateChange: this.hydrate,
     });

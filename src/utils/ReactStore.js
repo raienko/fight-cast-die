@@ -1,16 +1,14 @@
-import React, {useReducer, useContext, useEffect, useRef} from 'react';
+import React, {useReducer, useContext, useEffect} from 'react';
 
 export default class ReactStore {
-  Context = null;
   Provider = () => null;
   Consumer = () => null;
   useStore = () => {};
   state = null;
-  dispatch = (failedAction) => console.log(`Failed to dispatch: ${failedAction.type}`);
+  dispatch = () => {};
 
   constructor(reducer, initialState) {
     const Context = React.createContext();
-    this.Context = Context;
 
     const Provider = ({onDidMount, onStateChange, ...rest}) => {
       const [state, dispatch] = useReducer(reducer, initialState);
