@@ -20,7 +20,7 @@ export default () => {
 
   useEffect(() => {
     if (state.rehydrated) {
-      console.log('I am rehydrated', state);
+      console.log('Auth!');
       globalActions.authWithPhoneNumber();
     }
   }, [state]);

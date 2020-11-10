@@ -9,6 +9,7 @@ export const actions = {
 };
 
 const rehydratable = (defaultReducer) => (state, action) => {
+  console.log('Action: ', action.type);
   if (action.type === actions.rehydrate) {
     return {
       ...action.payload.state,

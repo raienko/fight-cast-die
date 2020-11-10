@@ -6,7 +6,6 @@ export const initialState = {
 };
 
 export default (state, action) => {
-  console.log('ACTION', action.type);
   switch (action.type) {
     case types.AUTHORIZE:
       return {
