@@ -21,30 +21,31 @@ const rehydratable = (defaultReducer) => (state, action) => {
 export default class ReactStoreWithHydration extends ReactStore {
   id;
 
-  constructor(id, reducer, ...rest) {
+  constructor(id, reducer, initialState) {
     const rehydratableReducer = rehydratable(reducer);
-    super(rehydratableReducer, ...rest);
+    super(rehydratableReducer, initialState);
     this.id = id;
   }
 
+  async rehydrate(initialState, dispatch) {
+    const storedState = await storage.getItem(this.id);
+    return dispatch({
+      type: actions.rehydrate,
+      payload: {
+        state: storedState || initialState,
+      },
+    });
+  }
+
+  hydrate(state) {
+    return storage.setItem(this.id, state);
+  }
+
   Provider1 = (params) => {
-    const rehydrate = async (initialState, dispatch) => {
-      const storedState = await storage.getItem(this.id);
-      return dispatch({
-        type: actions.rehydrate,
-        payload: {
-          state: storedState || initialState,
-        },
-      });
-    };
-
-    const hydrate = (state) => {
-      return storage.setItem(this.id, state);
-    };
-
-    const {Provider} = this;
-    return (
-      <Provider {...params} onDidMount={rehydrate} onStateChange={hydrate} />
-    );
+    return this.Provider({
+      ...params,
+      onDidMount: this.rehydrate,
+      onStateChange: this.hydrate,
+    });
   };
 }

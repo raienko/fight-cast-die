@@ -14,7 +14,6 @@ export default class ReactStore {
 
     const Provider = ({onDidMount, onStateChange, ...rest}) => {
       const [state, dispatch] = useReducer(reducer, initialState);
-
       this.state = state;
       this.dispatch = (action) => dispatch(action);
 
