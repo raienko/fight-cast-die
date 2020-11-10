@@ -16,14 +16,14 @@ export default () => {
   const [error, setError] = useState('');
   const [character, setCharacter] = useState(null);
   const [level, setLevel] = useState([]);
-  const { state } = globalStore.useStore();
-
+  const store = globalStore.useStore();
+  console.log({ state: store.state });
   useEffect(() => {
-    if (state.rehydrated) {
+    if (store.state.rehydrated && !store.state.token) {
       console.log('Auth!');
       globalActions.authWithPhoneNumber();
     }
-  }, [state]);
+  }, [store]);
   // const start = async () => {
   //   const currentCharacter = await fetchCurrentCharacter();
   //   if (!currentCharacter) {

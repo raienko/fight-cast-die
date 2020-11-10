@@ -8,14 +8,14 @@ import Exploration from 'src/screens/Exploration';
 export default class extends React.Component {
   render() {
     return (
-      <Store.Provider>
+      <Store.Provider1>
         <Exploration />
         {/*<User>*/}
         {/*  <GameMaster>*/}
         {/*    <Navigation />*/}
         {/*  </GameMaster>*/}
         {/*</User>*/}
-      </Store.Provider>
+      </Store.Provider1>
     );
   }
 }

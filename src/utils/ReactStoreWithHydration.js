@@ -18,44 +18,33 @@ const rehydratable = (defaultReducer) => (state, action) => {
   return defaultReducer(state, action);
 };
 
-const withRehydration = (id, Provider) => (params) => {
-  const rehydrate = async (initialState, dispatch) => {
-    const storedState = await storage.getItem(id);
-    return dispatch({
-      type: actions.rehydrate,
-      payload: {
-        state: storedState || initialState,
-      },
-    });
-  };
+export default class ReactStoreWithHydration extends ReactStore {
+  id;
 
-  const hydrate = (state) => storage.setItem(id, state);
-
-  return (
-    <Provider
-      {...params}
-      onDidMount={rehydrate}
-      onStateChange={hydrate}
-    />
-  );
-};
-
-export default class ReactStoreWithHydration {
-  Context = null;
-  Provider = () => null;
-  Consumer = () => null;
-  useStore = () => {};
-  state = null;
-  dispatch = () => {};
-
-  constructor(id, reducer, initialState) {
+  constructor(id, reducer, ...rest) {
     const rehydratableReducer = rehydratable(reducer);
-    const store = new ReactStore(rehydratableReducer, initialState);
-    this.Context = store.Context;
-    this.Provider = withRehydration(id, store.Provider);
-    this.Consumer = store.Consumer;
-    this.useStore = store.useStore;
-    this.state = store.state;
-    this.dispatch = store.dispatch;
+    super(rehydratableReducer, ...rest);
+    this.id = id;
   }
+
+  Provider1 = (params) => {
+    const rehydrate = async (initialState, dispatch) => {
+      const storedState = await storage.getItem(this.id);
+      return dispatch({
+        type: actions.rehydrate,
+        payload: {
+          state: storedState || initialState,
+        },
+      });
+    };
+
+    const hydrate = (state) => {
+      return storage.setItem(this.id, state);
+    };
+
+    const {Provider} = this;
+    return (
+      <Provider {...params} onDidMount={rehydrate} onStateChange={hydrate} />
+    );
+  };
 }

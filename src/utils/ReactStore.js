@@ -6,12 +6,11 @@ export default class ReactStore {
   Consumer = () => null;
   useStore = () => {};
   state = null;
-  dispatch = (action) => {
-    console.log('Tried to dispatch: ', { action });
-  };
+  dispatch = (failedAction) => console.log(`Failed to dispatch: ${failedAction.type}`);
 
   constructor(reducer, initialState) {
     const Context = React.createContext();
+    this.Context = Context;
 
     const Provider = ({onDidMount, onStateChange, ...rest}) => {
       const [state, dispatch] = useReducer(reducer, initialState);
@@ -34,7 +33,6 @@ export default class ReactStore {
       return <Context.Provider {...rest} value={{state, dispatch}} />;
     };
 
-    this.Context = Context;
     this.Provider = Provider;
     this.Consumer = Context.Consumer;
     this.useStore = () => useContext(Context);
