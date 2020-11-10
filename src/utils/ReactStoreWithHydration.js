@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactStore from './ReactStore';
-import LocalStorage from './LocalStorage';
+import ScopedStorage from './ScopedStorage';
 
-const storage = new LocalStorage('__hydrated_stores/');
+const storage = new ScopedStorage('hydrated');
 
 export const actions = {
   rehydrate: 'rehydrate',
 };
 
 const rehydratable = (defaultReducer) => (state, action) => {
-  console.log('Action: ', action.type);
   if (action.type === actions.rehydrate) {
     return {
       ...action.payload.state,
