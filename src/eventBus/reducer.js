@@ -1,4 +1,4 @@
-import * as types from './types';
+import types from './types';
 
 export const initialState = {
   token: null,

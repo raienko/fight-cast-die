@@ -4,7 +4,7 @@ import {useLoading} from './Loading';
 import {useLevel} from './Level';
 import {useViewport} from './Viewport';
 
-const Controller = () => {
+const ExplorationController = () => {
   const {hideLoading} = useLoading();
   const {changeLevel} = useLevel();
   // const {character} = useCharacter();
@@ -25,4 +25,4 @@ const Controller = () => {
   return null;
 };
 
-export default Controller;
+export default ExplorationController;
