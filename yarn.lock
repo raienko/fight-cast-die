@@ -6067,10 +6067,10 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-rn-units@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/rn-units/-/rn-units-0.0.9.tgz#de7c1331fe63fc2ed5595e90e304abb9eb731c6f"
-  integrity sha512-lZvByVKJnytjNd76d4501PM2BgPxcvtEeFC6WogYNbDqqhA9x9OqsWiP7o6CTpJ+cDsoQSxjUheUwh9OCNrYeg==
+rn-units@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/rn-units/-/rn-units-0.0.11.tgz#872c10583e226363000809cb2a4b3b28f630c874"
+  integrity sha512-rjqysMAqDbduYPp8Gq4c9kZWzAA7tB16CL+5A2mXvsB/i/S5sdhsHu8M/qAkhXqk09ErNLAxgt2yeW9Z+V+vNA==
 
 rsvp@^4.8.4:
   version "4.8.5"

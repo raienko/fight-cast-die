@@ -1,4 +1,5 @@
 export default {
   AUTHORIZE: 'AUTHORIZE',
+  FETCH_PROFILE: 'FETCH_PROFILE',
   LOGOUT: 'LOGOUT',
 };

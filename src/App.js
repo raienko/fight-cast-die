@@ -1,15 +1,12 @@
 import React from 'react';
 import globalStore from 'src/globalStore';
-import gameMaster from 'src/gameMaster';
-import Exploration from 'src/screens/Exploration';
+import Navigation from 'src/screens/Navigation';
 
 export default class extends React.Component {
   render() {
     return (
       <globalStore.Provider>
-        {/*<gameMaster.Provider>*/}
-          <Exploration />
-        {/*</gameMaster.Provider>*/}
+        <Navigation />
       </globalStore.Provider>
     );
   }

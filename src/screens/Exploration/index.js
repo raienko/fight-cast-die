@@ -16,22 +16,16 @@ export default () => {
   const [error, setError] = useState('');
   const [character, setCharacter] = useState(null);
   const [level, setLevel] = useState([]);
-  const { state } = globalStore.useStore();
-  console.log({ state });
-  return null;
 
-  // return (
-  //   <Viewport>
-  //     <Loading>
-  //       <Level>
-  //         <Terrain />
-  //         <GridHighlight />
-  //         <Mobs />
-  //         <Players />
-  //         <Controller />
-  //         <CurrentPlayer />
-  //       </Level>
-  //     </Loading>
-  //   </Viewport>
-  // );
+  return (
+    <Viewport>
+      {/*<Level>*/}
+      {/*  <Terrain />*/}
+      {/*  <GridHighlight />*/}
+      {/*  <Mobs />*/}
+      {/*  <Players />*/}
+      {/*  <CurrentPlayer />*/}
+      {/*</Level>*/}
+    </Viewport>
+  );
 };

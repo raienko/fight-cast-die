@@ -7,6 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Loading from 'src/screens/Loading';
+import Fetching from 'src/screens/Fetching';
 import SignIn from 'src/screens/SignIn';
 import Home from 'src/screens/Home';
 import SignUp from 'src/screens/SignUp';
@@ -15,7 +16,7 @@ import Exploration from 'src/screens/Exploration';
 import Battle from 'src/screens/Battle';
 import Character from 'src/screens/Character';
 import Store from 'src/screens/Store';
-import {useStore} from 'src/globalStore';
+import globalStore from 'src/globalStore';
 
 const Stack = createStackNavigator();
 
@@ -44,22 +45,26 @@ const Main = () => (
   </Stack.Navigator>
 );
 
-export default () => {
-  const store = useStore();
+const Navigator = () => {
+  const {state} = globalStore.useStore();
 
-  let Navigator = Initial;
-
-  if (store.ready) {
-    Navigator = Auth;
+  if (!state.rehydrated) {
+    return <Initial />;
   }
 
-  if (store.token) {
-    Navigator = Main;
+  if (!state.token) {
+    return <Auth />;
   }
 
-  return (
-    <NavigationContainer>
-      <Navigator />
-    </NavigationContainer>
-  );
+  if (!state.profile) {
+    return <Fetching />;
+  }
+
+  return <Main />;
 };
+
+export default () => (
+  <NavigationContainer>
+    <Navigator />
+  </NavigationContainer>
+);

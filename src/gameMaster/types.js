@@ -1,4 +1,0 @@
-export default {
-  FETCH_CHARACTER: 'FETCH_CHARACTER',
-  CHANGE_LEVEL: 'CHANGE_LEVEL',
-};

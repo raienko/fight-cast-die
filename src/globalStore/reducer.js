@@ -2,7 +2,7 @@ import types from './types';
 
 export const initialState = {
   token: null,
-  ready: false,
+  profile: null,
 };
 
 export default (state, action) => {
@@ -12,10 +12,14 @@ export default (state, action) => {
         ...state,
         token: action.payload.token,
       };
-    case types.LOGOUT:
+    case types.FETCH_PROFILE:
       return {
         ...state,
-        token: null,
+        profile: action.payload.profile,
+      };
+    case types.LOGOUT:
+      return {
+        ...initialState,
       };
     default:
       return {
