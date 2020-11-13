@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontWeight: 'bold',
     fontSize: 22,
-    fontFamily: 'Times New Roman',
     textTransform: 'uppercase',
   },
 });
