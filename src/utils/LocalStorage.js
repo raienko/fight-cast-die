@@ -1,34 +1,43 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
+const compress = (data) => JSON.stringify(data);
+
+const decompress = (data) => {
+  return data ? JSON.parse(data) : data;
+};
+
 export default class LocalStorage {
-  prefix;
-
-  constructor(prefix = '') {
-    this.prefix = prefix;
-  }
-
-  getKeyWithPrefix(key) {
-    return this.prefix + key;
-  }
-
-  parseKeyWithPrefix(keyWithPrefix) {
-    return keyWithPrefix.substring(this.prefix?.length);
-  }
-
   setItem(key, value) {
-    const keyWithPrefix = this.getKeyWithPrefix(key);
-    return AsyncStorage.setItem(keyWithPrefix, JSON.stringify(value));
+    return AsyncStorage.setItem(key, compress(value));
   }
 
   getItem(key) {
-    const keyWithPrefix = this.getKeyWithPrefix(key);
-    return AsyncStorage.getItem(keyWithPrefix).then((data) => {
-      return data ? JSON.parse(data) : data;
-    });
+    return AsyncStorage.getItem(key).then(decompress);
   }
 
   removeItem(key) {
-    const keyWithPrefix = this.getKeyWithPrefix(key);
-    return AsyncStorage.removeItem(keyWithPrefix);
+    return AsyncStorage.removeItem(key);
+  }
+
+  getAllKeys() {
+    return AsyncStorage.getAllKeys();
+  }
+
+  multiGet(keys, callback) {
+    return AsyncStorage.multiGet(keys, callback)
+      .then((results) => results.map(([key, value]) => ([key, decompress(value)])));
+  }
+
+  multiSet(keyValuePairs, callback) {
+    const data = keyValuePairs.map(([key, value]) => ([key, compress(value)]));
+    return AsyncStorage.multiSet(data, callback);
+  }
+
+  multiRemove(keys, callback) {
+    return AsyncStorage.multiRemove(keys, callback);
+  }
+
+  clear(callback) {
+    return AsyncStorage.clear(callback);
   }
 }

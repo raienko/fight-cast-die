@@ -1,21 +1,17 @@
-import React, {useReducer, useContext, useEffect, useRef} from 'react';
+import React, {useReducer, useContext, useEffect} from 'react';
 
 export default class ReactStore {
-  Context = null;
   Provider = () => null;
   Consumer = () => null;
   useStore = () => {};
   state = null;
-  dispatch = (action) => {
-    console.log('Tried to dispatch: ', { action });
-  };
+  dispatch = () => {};
 
-  constructor(reducer, initialState) {
+  constructor(reducer, initialState, onDidMount, onStateChange) {
     const Context = React.createContext();
 
-    const Provider = ({onDidMount, onStateChange, ...rest}) => {
+    const Provider = (params) => {
       const [state, dispatch] = useReducer(reducer, initialState);
-
       this.state = state;
       this.dispatch = (action) => dispatch(action);
 
@@ -26,12 +22,12 @@ export default class ReactStore {
       }, []);
 
       useEffect(() => {
-        if (onStateChange) {
+        if (onDidMount) {
           onStateChange(state, dispatch);
         }
       }, [state]);
 
-      return <Context.Provider {...rest} value={{state, dispatch}} />;
+      return <Context.Provider {...params} value={{state, dispatch}} />;
     };
 
     this.Context = Context;

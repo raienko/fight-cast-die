@@ -1,27 +1,37 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import Button from 'src/components/Button';
+import Loading from './Loading';
+import Level from './Level';
 import Viewport from './Viewport';
-import Character from './CurrentPlayer';
+import CurrentPlayer from './CurrentPlayer';
 import Terrain from './Terrain';
 import Mobs from './Mobs';
-import Level from './Level';
-import EventBus from './EventBus';
 import Players from './Players';
-import ExplorationController from './ExplorationController';
 import GridHighlight from './GridHighlight';
+import globalStore from 'src/globalStore';
+import * as globalActions from 'src/globalStore/actions';
 
 export default () => {
-  return (
-    <Viewport>
-      <EventBus>
-        <Level>
-          <Terrain />
-          <GridHighlight />
-          <Mobs />
-          <Players />
-          <Character />
-          <ExplorationController />
-        </Level>
-      </EventBus>
-    </Viewport>
-  );
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [character, setCharacter] = useState(null);
+  const [level, setLevel] = useState([]);
+  const { state } = globalStore.useStore();
+  console.log({ state });
+  return null;
+
+  // return (
+  //   <Viewport>
+  //     <Loading>
+  //       <Level>
+  //         <Terrain />
+  //         <GridHighlight />
+  //         <Mobs />
+  //         <Players />
+  //         <Controller />
+  //         <CurrentPlayer />
+  //       </Level>
+  //     </Loading>
+  //   </Viewport>
+  // );
 };

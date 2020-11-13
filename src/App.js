@@ -7,9 +7,9 @@ export default class extends React.Component {
   render() {
     return (
       <globalStore.Provider>
-        <gameMaster.Provider>
+        {/*<gameMaster.Provider>*/}
           <Exploration />
-        </gameMaster.Provider>
+        {/*</gameMaster.Provider>*/}
       </globalStore.Provider>
     );
   }
