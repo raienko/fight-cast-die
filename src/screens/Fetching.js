@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
+import Text from 'src/components/Text';
 import * as globalActions from 'src/globalStore/actions';
 
 export default function Fetching() {
@@ -14,6 +15,7 @@ export default function Fetching() {
   }, []);
   return (
     <View style={styles.wrapper}>
+      <Text text="Fetching user's data..." />
     </View>
   );
 }
@@ -21,6 +23,8 @@ export default function Fetching() {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#ccc',
   },
 });
