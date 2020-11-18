@@ -27,6 +27,25 @@ export const fetchUserProfile = async () => {
         name: 'John Sparrow',
         birthday: '2010123',
         premium: false,
+        characters: [12, 13, 14, 15],
+        character: null,
+      },
+    },
+  });
+};
+
+export const fetchCharacter = async () => {
+  return globalStore.dispatch({
+    type: types.FETCH_CHARACTER,
+    payload: {
+      character: {
+        name: 'CharName',
+        class: 'knight',
+        level: 10,
+        equipment: [],
+        inventory: [],
+        skills: [],
+        stats: {},
       },
     },
   });

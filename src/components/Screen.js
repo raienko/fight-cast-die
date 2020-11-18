@@ -3,7 +3,7 @@ import {View, StyleSheet} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {rem} from 'rn-units';
 
-export default function Screen({children}) {
+export default function Screen(params) {
   const insets = useSafeAreaInsets();
   const paddings = {
     paddingTop: insets.top,
@@ -12,11 +12,7 @@ export default function Screen({children}) {
     paddingRight: insets.right,
   };
 
-  return (
-    <View style={[styles.wrapper, paddings]}>
-      {children}
-    </View>
-  );
+  return <View {...params} style={[styles.wrapper, paddings]} />;
 }
 
 const styles = StyleSheet.create({
