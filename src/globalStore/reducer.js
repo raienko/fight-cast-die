@@ -20,7 +20,6 @@ export default (state, action) => {
     case types.LOGOUT:
       return {
         ...initialState,
-        rehydrated: state.rehydrated,
       };
     default:
       return {
