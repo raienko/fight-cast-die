@@ -23,8 +23,8 @@ export default class Button extends React.PureComponent {
   }
 }
 
-const width = rem(80);
-const height = width * 0.3;
+const width = rem(100);
+const height = width * 0.26;
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: rem(5),
+    margin: rem(5),
   },
   background: {
     position: 'absolute',
@@ -44,9 +45,9 @@ const styles = StyleSheet.create({
     height,
   },
   text: {
-    color: '#ffffff',
+    color: '#030303',
     fontWeight: 'bold',
-    fontSize: 22,
+    fontSize: 20,
     textTransform: 'uppercase',
   },
 });

@@ -24,8 +24,7 @@ export default class CustomText extends React.Component {
       <Text
         {...rest}
         style={combineStyles(styles.text, style)}
-        allowFontScaling={false}
-      >
+        allowFontScaling={false}>
         {text}
         {value}
         {children}
@@ -36,6 +35,6 @@ export default class CustomText extends React.Component {
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: 'Times New Roman',
+    fontFamily: 'Arial',
   },
 });

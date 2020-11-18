@@ -34,7 +34,16 @@ export const fetchUserProfile = async () => {
   });
 };
 
-export const fetchCharacter = async () => {
+export const createCharacter = async (character) => {
+  return globalStore.dispatch({
+    type: types.FETCH_CHARACTER,
+    payload: {
+      character,
+    },
+  });
+};
+
+export const fetchCharacter = async (id) => {
   return globalStore.dispatch({
     type: types.FETCH_CHARACTER,
     payload: {
@@ -47,6 +56,24 @@ export const fetchCharacter = async () => {
         skills: [],
         stats: {},
       },
+    },
+  });
+};
+
+export const updateCharacter = async (id, changes) => {
+  return globalStore.dispatch({
+    type: types.UPDATE_CHARACTER,
+    payload: {
+      changes,
+    },
+  });
+};
+
+export const removeCharacter = async (id) => {
+  return globalStore.dispatch({
+    type: types.REMOVE_CHARACTER,
+    payload: {
+      id,
     },
   });
 };

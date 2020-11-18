@@ -21,6 +21,6 @@ export default function Fetching() {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: '#ccc',
   },
 });

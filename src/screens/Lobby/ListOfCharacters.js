@@ -15,9 +15,9 @@ export default function ListOfCharacters({characters}) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    height: rem(100),
+    flexGrow: 1,
     width: '100%',
-    borderWidth: 1,
-    backgroundColor: 'yellow',
+    borderRadius: rem(5),
+    backgroundColor: '#ddd',
   },
 });
