@@ -1,24 +1,22 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import PropTypes from 'prop-types';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {rem} from 'rn-units';
 
-export default class extends React.Component {
-  static propTypes = {
-    children: PropTypes.node,
+export default function Screen({children}) {
+  const insets = useSafeAreaInsets();
+  const paddings = {
+    paddingTop: insets.top,
+    paddingBottom: insets.bottom + rem(10),
+    paddingLeft: insets.left,
+    paddingRight: insets.right,
   };
 
-  static defaultProps = {
-    children: null,
-  };
-
-  render() {
-    const {children} = this.props;
-    return (
-      <View style={styles.wrapper}>
-        {children}
-      </View>
-    );
-  }
+  return (
+    <View style={[styles.wrapper, paddings]}>
+      {children}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

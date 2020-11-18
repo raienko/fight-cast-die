@@ -9,6 +9,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Loading from 'src/screens/Loading';
 import Fetching from 'src/screens/Fetching';
 import SignIn from 'src/screens/SignIn';
+import Lobby from 'src/screens/Lobby';
+import Creation from 'src/screens/Creation';
 import Home from 'src/screens/Home';
 import SignUp from 'src/screens/SignUp';
 import Settings from 'src/screens/Settings';
@@ -45,6 +47,13 @@ const Main = () => (
   </Stack.Navigator>
 );
 
+const Characters = () => (
+  <Stack.Navigator mode="modal" headerMode="none">
+    <Stack.Screen name="Lobby" component={Lobby} />
+    <Stack.Screen name="Creation" component={Creation} />
+  </Stack.Navigator>
+);
+
 const Navigator = () => {
   const {state} = globalStore.useStore();
 
@@ -58,6 +67,10 @@ const Navigator = () => {
 
   if (!state.profile) {
     return <Fetching />;
+  }
+
+  if (!state.profile.character) {
+    return <Characters />;
   }
 
   return <Main />;
