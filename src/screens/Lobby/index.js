@@ -5,8 +5,8 @@ import Spinner from 'src/components/Spinner';
 import Text from 'src/components/Text';
 import Button from 'src/components/Button';
 import Row from 'src/components/Row';
-import globalStore from 'src/globalStore';
-import * as globalActions from 'src/globalStore/actions';
+import globalStore from 'src/stores/global';
+import * as globalActions from 'src/stores/global/actions';
 import ListOfCharacters from './ListOfCharacters';
 
 export default () => {

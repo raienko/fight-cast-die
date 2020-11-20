@@ -18,7 +18,7 @@ import Exploration from 'src/screens/Exploration';
 import Battle from 'src/screens/Battle';
 import Character from 'src/screens/Character';
 import Store from 'src/screens/Store';
-import globalStore from 'src/globalStore';
+import globalStore from 'src/stores/global';
 
 const Stack = createStackNavigator();
 

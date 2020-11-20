@@ -1,5 +1,5 @@
 import React from 'react';
-import globalStore from 'src/globalStore';
+import globalStore from 'src/stores/global';
 import Navigation from 'src/screens/Navigation';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 

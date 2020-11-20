@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Text from 'src/components/Text';
-import * as globalActions from 'src/globalStore/actions';
+import * as globalActions from 'src/stores/global/actions';
 
 export default function Fetching() {
   const load = async () => {

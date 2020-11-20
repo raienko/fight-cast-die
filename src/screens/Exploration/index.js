@@ -8,8 +8,8 @@ import Terrain from './Terrain';
 import Mobs from './Mobs';
 import Players from './Players';
 import GridHighlight from './GridHighlight';
-import globalStore from 'src/globalStore';
-import * as globalActions from 'src/globalStore/actions';
+import globalStore from 'src/stores/global';
+import * as globalActions from 'src/stores/global/actions';
 
 export default () => {
   const [loading, setLoading] = useState(true);

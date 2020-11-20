@@ -6,7 +6,7 @@ import Text from 'src/components/Text';
 import Button from 'src/components/Button';
 import Spinner from 'src/components/Spinner';
 import Row from 'src/components/Row';
-import * as storeActions from 'src/globalStore/actions';
+import * as storeActions from 'src/stores/global/actions';
 
 export default () => {
   const navigation = useNavigation();

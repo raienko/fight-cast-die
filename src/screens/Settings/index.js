@@ -3,7 +3,7 @@ import {View, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Text from 'src/components/Text';
 import Button from 'src/components/Button';
-import * as storeActions from 'src/globalStore/actions';
+import * as storeActions from 'src/stores/global/actions';
 
 export default () => {
   const navigation = useNavigation();

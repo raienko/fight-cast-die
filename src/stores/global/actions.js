@@ -1,6 +1,6 @@
 import {wait} from 'rn-units';
 import Logger from 'rn-units/components/Logger';
-import globalStore from 'src/globalStore';
+import globalStore from 'src/stores/global/index';
 import types from './types';
 
 export const authWithPhoneNumber = async (phoneNumber, code) => {

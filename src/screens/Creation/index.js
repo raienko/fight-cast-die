@@ -5,7 +5,7 @@ import Screen from 'src/components/Screen';
 import Text from 'src/components/Text';
 import Button from 'src/components/Button';
 import TextInput from 'src/components/TextInput';
-import * as storeActions from 'src/globalStore/actions';
+import * as storeActions from 'src/stores/global/actions';
 
 export default () => {
   const navigation = useNavigation();
