@@ -3,9 +3,11 @@ import Logger from 'rn-units/components/Logger';
 import globalStore from 'src/stores/global/index';
 import types from './types';
 
+const requestDelay = 1000;
+
 export const authWithPhoneNumber = async (phoneNumber, code) => {
   Logger.out('Auth with phone number');
-  await wait(2000);
+  await wait(requestDelay);
   const token = 'fake_mobile_token';
   Logger.in('Authorized!');
   return globalStore.dispatch({
@@ -18,7 +20,7 @@ export const authWithPhoneNumber = async (phoneNumber, code) => {
 
 export const fetchUserProfile = async () => {
   Logger.out('Fetch user profile');
-  await wait(2000);
+  await wait(requestDelay);
   Logger.in('User profile fetched');
   return globalStore.dispatch({
     type: types.FETCH_PROFILE,
@@ -34,7 +36,7 @@ export const fetchUserProfile = async () => {
 
 export const updateUserProfile = async (changes) => {
   Logger.out('Updating user profile');
-  await wait(2000);
+  await wait(requestDelay);
   Logger.in('User profile updated');
   return globalStore.dispatch({
     type: types.FETCH_PROFILE,
@@ -46,7 +48,7 @@ export const updateUserProfile = async (changes) => {
 
 export const fetchSettings = async () => {
   Logger.out('Fetch settings');
-  await wait(2000);
+  await wait(requestDelay);
   Logger.in('Settings fetched');
   return globalStore.dispatch({
     type: types.FETCH_PROFILE,
@@ -64,7 +66,7 @@ export const fetchSettings = async () => {
 
 export const updateSettings = async (changes) => {
   Logger.out('Updating settings');
-  await wait(2000);
+  await wait(requestDelay);
   Logger.in('Settings updated');
   return globalStore.dispatch({
     type: types.FETCH_PROFILE,
@@ -76,6 +78,6 @@ export const updateSettings = async (changes) => {
 
 export const logout = async () => {
   Logger.warn('Logout');
-  await wait(2000);
+  await wait(requestDelay);
   return globalStore.dispatch({type: types.LOGOUT});
 };

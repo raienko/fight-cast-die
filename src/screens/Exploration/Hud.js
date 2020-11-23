@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Button from 'src/components/Button';
-import * as globalActions from 'src/stores/global/actions';
+import * as characterAction from 'src/stores/character/actions';
 
 export default function Hud({children}) {
   return (
-    <View style={styles.wrapper}>
-      <Button text="logout" onPress={globalActions.logout} />
+    <View style={styles.wrapper} pointerEvents="box-none">
+      <Button text="lobby" onPress={characterAction.switchCharacter} />
     </View>
   );
 }
@@ -14,6 +14,5 @@ export default function Hud({children}) {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#fff',
   },
 });

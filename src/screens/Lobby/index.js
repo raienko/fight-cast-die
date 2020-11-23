@@ -5,15 +5,15 @@ import Spinner from 'src/components/Spinner';
 import Text from 'src/components/Text';
 import Button from 'src/components/Button';
 import Row from 'src/components/Row';
-import globalStore from 'src/stores/global';
 import * as globalActions from 'src/stores/global/actions';
+import * as characterActions from 'src/stores/character/actions';
 import ListOfCharacters from './ListOfCharacters';
 
 export default () => {
   const navigation = useNavigation();
   const createCharacter = () => navigation.navigate('Creation');
   const [fetching, setFetching] = useState(false);
-  const {state} = globalStore.useStore();
+  const [selected, setSelected] = useState(false);
 
   const logout = async () => {
     setFetching(true);
@@ -22,12 +22,20 @@ export default () => {
     });
   };
 
+  const start = () => {
+    return characterActions.fetchCharacter(selected);
+  };
+
   return (
     <Screen>
       <Text text="lobby.title" />
-      <ListOfCharacters chatacters={state.profile.characters} />
+      <ListOfCharacters
+        selected={selected}
+        select={setSelected}
+      />
       <Row>
         <Button text="create" onPress={createCharacter} />
+        <Button text="start" onPress={start} disabled={!selected} />
         <Button text="logout" onPress={logout} />
       </Row>
       <Spinner visible={fetching} />

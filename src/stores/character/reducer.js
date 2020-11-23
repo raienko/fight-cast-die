@@ -33,6 +33,11 @@ export default (state, action) => {
           ...action.payload.changes,
         },
       };
+    case types.SWITCH_CHARACTER:
+      return {
+        ...state,
+        character: null,
+      };
     case types.RESET:
       return {
         ...initialState,
