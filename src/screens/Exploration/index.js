@@ -3,6 +3,7 @@ import Button from 'src/components/Button';
 import Loading from './Loading';
 import Level from './Level';
 import Viewport from './Viewport';
+import Hud from './Hud';
 import CurrentPlayer from './CurrentPlayer';
 import Terrain from './Terrain';
 import Mobs from './Mobs';
@@ -26,6 +27,7 @@ export default () => {
       {/*  <Players />*/}
       {/*  <CurrentPlayer />*/}
       {/*</Level>*/}
+      <Hud />
     </Viewport>
   );
 };
