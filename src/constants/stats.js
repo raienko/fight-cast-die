@@ -5,4 +5,4 @@ export default {
   str: 'str',
   agi: 'agi',
   int: 'int',
-}
+};
