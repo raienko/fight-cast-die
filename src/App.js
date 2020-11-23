@@ -1,7 +1,7 @@
 import React from 'react';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import globalStore from 'src/stores/global';
 import Navigation from 'src/screens/Navigation';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 export default class extends React.Component {
   render() {

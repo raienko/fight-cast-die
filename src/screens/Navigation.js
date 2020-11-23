@@ -57,8 +57,6 @@ const Characters = () => (
 const Navigator = () => {
   const {state} = globalStore.useStore();
 
-  console.log({state});
-
   if (!state.rehydrated) {
     return <Initial />;
   }
