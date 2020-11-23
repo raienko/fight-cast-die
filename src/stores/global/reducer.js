@@ -17,10 +17,26 @@ export default (state, action) => {
         ...state,
         profile: action.payload.profile,
       };
-    case types.FETCH_CHARACTER:
+    case types.UPDATE_PROFILE:
       return {
         ...state,
-        character: action.payload.character,
+        profile: {
+          ...state.profile,
+          ...action.payload.changes,
+        },
+      };
+    case types.FETCH_SETTINGS:
+      return {
+        ...state,
+        settings: action.payload.settings,
+      };
+    case types.UPDATE_SETTINGS:
+      return {
+        ...state,
+        settings: {
+          ...state.settings,
+          ...action.payload.changes,
+        },
       };
     case types.LOGOUT:
       return {

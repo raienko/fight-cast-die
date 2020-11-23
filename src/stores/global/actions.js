@@ -27,53 +27,49 @@ export const fetchUserProfile = async () => {
         name: 'John Sparrow',
         birthday: '2010123',
         premium: false,
-        characters: [12, 13, 14, 15],
-        character: null,
       },
     },
   });
 };
 
-export const createCharacter = async (character) => {
+export const updateUserProfile = async (changes) => {
+  Logger.out('Updating user profile');
+  await wait(2000);
+  Logger.in('User profile updated');
   return globalStore.dispatch({
-    type: types.FETCH_CHARACTER,
-    payload: {
-      character,
-    },
-  });
-};
-
-export const fetchCharacter = async (id) => {
-  return globalStore.dispatch({
-    type: types.FETCH_CHARACTER,
-    payload: {
-      character: {
-        name: 'CharName',
-        class: 'knight',
-        level: 10,
-        equipment: [],
-        inventory: [],
-        skills: [],
-        stats: {},
-      },
-    },
-  });
-};
-
-export const updateCharacter = async (id, changes) => {
-  return globalStore.dispatch({
-    type: types.UPDATE_CHARACTER,
+    type: types.FETCH_PROFILE,
     payload: {
       changes,
     },
   });
 };
 
-export const removeCharacter = async (id) => {
+export const fetchSettings = async () => {
+  Logger.out('Fetch settings');
+  await wait(2000);
+  Logger.in('Settings fetched');
   return globalStore.dispatch({
-    type: types.REMOVE_CHARACTER,
+    type: types.FETCH_PROFILE,
     payload: {
-      id,
+      settings: {
+        volume: false,
+        music: false,
+        vibration: false,
+        notifications: false,
+        language: 'en',
+      },
+    },
+  });
+};
+
+export const updateSettings = async (changes) => {
+  Logger.out('Updating settings');
+  await wait(2000);
+  Logger.in('Settings updated');
+  return globalStore.dispatch({
+    type: types.FETCH_PROFILE,
+    payload: {
+      changes,
     },
   });
 };
