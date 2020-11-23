@@ -5,8 +5,8 @@ import {combineStyles, rem} from 'rn-units';
 export default function CustomTextInput({style, ...rest}) {
   return (
     <TextInput
-      style={combineStyles(styles.input, style)}
       {...rest}
+      style={combineStyles(styles.input, style)}
       allowFontScaling={false}
     />
   );

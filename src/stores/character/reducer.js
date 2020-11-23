@@ -14,6 +14,12 @@ export default (state, action) => {
         ...state,
         characters: action.payload.characters,
       };
+    case types.CREATE_CHARACTER:
+      return {
+        ...state,
+        characters: action.payload.characters,
+        character: action.payload.character,
+      };
     case types.FETCH_CHARACTER:
       return {
         ...state,

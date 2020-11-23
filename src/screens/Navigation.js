@@ -18,7 +18,9 @@ import Exploration from 'src/screens/Exploration';
 import Battle from 'src/screens/Battle';
 import Character from 'src/screens/Character';
 import Store from 'src/screens/Store';
+
 import globalStore from 'src/stores/global';
+import characterStore from 'src/stores/character';
 
 const Stack = createStackNavigator();
 
@@ -55,21 +57,29 @@ const Characters = () => (
 );
 
 const Navigator = () => {
-  const {state} = globalStore.useStore();
+  const {state: globalState} = globalStore.useStore();
+  const {state: characterState} = characterStore.useStore();
 
-  if (!state.rehydrated) {
+  console.log({
+    globalState,
+    characterState,
+  });
+
+  const rehydrated = globalState.rehydrated && characterState.rehydrated;
+
+  if (!rehydrated) {
     return <Initial />;
   }
 
-  if (!state.token) {
+  if (!globalState.token) {
     return <Auth />;
   }
 
-  if (!state.profile) {
+  if (!globalState.profile) {
     return <Fetching />;
   }
 
-  if (!state.profile.character) {
+  if (!characterState.character) {
     return <Characters />;
   }
 
