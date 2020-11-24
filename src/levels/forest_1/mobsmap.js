@@ -5,4 +5,12 @@ export default [
   {id: 'w3', type: 'wolf', x: 17, y: 20},
   {id: 'w4', type: 'wolf', x: 12, y: 11},
   {id: 'w5', type: 'wolf', x: 8, y: 9},
+  {id: 'w6', type: 'wolf', x: 15, y: 10},
+  {id: 'w7', type: 'wolf', x: 16, y: 11},
+  {id: 'w8', type: 'wolf', x: 17, y: 12},
+  {id: 'w9', type: 'wolf', x: 18, y: 13},
+  {id: 'w10', type: 'wolf', x: 19, y: 14},
+  {id: 'w11', type: 'wolf', x: 20, y: 15},
+  {id: 'w12', type: 'wolf', x: 21, y: 16},
+  {id: 'w13', type: 'wolf', x: 22, y: 17},
 ];

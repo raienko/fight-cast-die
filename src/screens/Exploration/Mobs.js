@@ -1,47 +1,14 @@
 import React from 'react';
-import {Image, View, StyleSheet} from 'react-native';
-import {cellSize} from 'src/constants';
 import mobs from 'src/mobs';
-import {useLevel} from './Level';
+import Tile from './Tile';
 
-export default function Mobs() {
-  const {level} = useLevel();
-  if (!level) {
-    return null;
-  }
-
-  return level.mobsmap.map((mob, index) => {
-    const position = {
-      left: mob.x * cellSize,
-      top: mob.y * cellSize,
-    };
-
-    const mobInfo = mobs[mob.type];
-
-    return (
-      <View key={`${index}`} style={[styles.wrapper, position]}>
-        <Image
-          style={styles.tile}
-          source={mobInfo.tile}
-          resizeMode="contain"
-        />
-      </View>
-    );
-  });
+export default function Mobs({mobsmap}) {
+  return mobsmap.map((mob) => (
+    <Tile
+      key={mob.id}
+      size={mobs[mob.type].size}
+      source={mobs[mob.type].tile}
+      position={{x: mob.x, y: mob.y}}
+    />
+  ));
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    position: 'absolute',
-    width: cellSize,
-    height: cellSize,
-  },
-  tile: {
-    width: cellSize * 2,
-    height: cellSize * 2,
-    transform: [
-      { translateX: -cellSize / 2 },
-      { translateY: -cellSize / 2 },
-    ],
-  },
-});

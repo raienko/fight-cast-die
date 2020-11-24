@@ -1,33 +1,23 @@
-import React, {useState, useEffect} from 'react';
-import Button from 'src/components/Button';
-import Loading from './Loading';
-import Level from './Level';
+import React from 'react';
+import levels from 'src/levels';
+import Canvas from './Canvas';
 import Viewport from './Viewport';
-import Hud from './Hud';
-import CurrentPlayer from './CurrentPlayer';
-import Terrain from './Terrain';
+import Board from './Board';
 import Mobs from './Mobs';
-import Players from './Players';
-import GridHighlight from './GridHighlight';
-import globalStore from 'src/stores/global';
-import * as globalActions from 'src/stores/global/actions';
+import Hud from './Hud';
 
 export default () => {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-  const [character, setCharacter] = useState(null);
-  const [level, setLevel] = useState([]);
-
+  const level = levels.forest_1;
   return (
-    <Viewport>
-      {/*<Level>*/}
-      {/*  <Terrain />*/}
-      {/*  <GridHighlight />*/}
-      {/*  <Mobs />*/}
-      {/*  <Players />*/}
-      {/*  <CurrentPlayer />*/}
-      {/*</Level>*/}
+    <Canvas>
+      <Viewport>
+        <Board
+          tilemap={level.tilemap}
+          background={level.background}
+        />
+        <Mobs mobsmap={level.mobsmap} />
+      </Viewport>
       <Hud />
-    </Viewport>
+    </Canvas>
   );
 };
