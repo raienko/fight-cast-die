@@ -24,7 +24,7 @@ export default class Button extends React.PureComponent {
   }
 }
 
-const width = rem(100);
+const width = rem(150);
 const height = width * 0.26;
 
 const styles = StyleSheet.create({

@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import globalStore from 'src/stores/global';
-import characterStore from 'src/stores/character';
+import gameStore from 'src/stores/game';
 import Navigation from 'src/screens/Navigation';
 
 export default class extends React.Component {
@@ -9,9 +9,9 @@ export default class extends React.Component {
     return (
       <SafeAreaProvider>
         <globalStore.Provider>
-          <characterStore.Provider>
+          <gameStore.Provider>
             <Navigation />
-          </characterStore.Provider>
+          </gameStore.Provider>
         </globalStore.Provider>
       </SafeAreaProvider>
     );
