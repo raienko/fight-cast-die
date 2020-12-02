@@ -9,5 +9,6 @@ export default function Row({style, ...rest}) {
 const styles = StyleSheet.create({
   wrapper: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
 });
