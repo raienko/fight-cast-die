@@ -1,55 +1,26 @@
-import React from 'react';
-import {StyleSheet} from 'react-native';
-import Row from 'src/components/Row';
+import React, {useState} from 'react';
+import {StyleSheet, View} from 'react-native';
 import Button from 'src/components/Button';
-import statuses from 'src/constants/statuses';
 
-export default function Controls({status, setStatus}) {
-  const search = () => {
-    setStatus(statuses.searching);
-  };
-
-  const create = () => {
-    setStatus(statuses.playing);
-  };
-
-  const cancel = () => {
-    setStatus(statuses.online);
-  };
-
-  const abandon = () => {
-    setStatus(statuses.online);
-  };
-
-  const resume = () => {
-    setStatus(statuses.playing);
-  };
-
+export default function Controls() {
+  const [playing, setPlaying] = useState(false);
   return (
-    <Row style={styles.wrapper}>
+    <View style={styles.wrapper}>
       {
-        status === statuses.online && <>
-          <Button text="search" onPress={search} />
-          <Button text="create" onPress={create} />
-        </>
+        playing
+        && <Button text="Abandon" onPress={() => setPlaying(false)} />
       }
-      {
-        status === statuses.searching && <>
-          <Button text="cancel" onPress={cancel} />
-        </>
-      }
-      {
-        status === statuses.playing && <>
-          <Button text="abandon" onPress={abandon} />
-          <Button text="resume" onPress={resume} />
-        </>
-      }
-    </Row>
+      <Button
+        text={playing ? 'Return' : 'Create'}
+        onPress={() => setPlaying(!playing)}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   wrapper: {
+    alignItems: 'center',
     justifyContent: 'center',
   },
 });

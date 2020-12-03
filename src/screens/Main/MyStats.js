@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import {rem} from 'rn-units';
 import Text from 'src/components/Text';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const hardcodedProfile = {
   id: 'asd',
@@ -18,16 +19,20 @@ const hardcodedProfile = {
 
 export default function MyStats() {
   const [profile, setProfile] = useState(hardcodedProfile);
+  const insets = useSafeAreaInsets();
+  const paddingTop = insets.top;
   return (
-    <View style={styles.wrapper}>
-      <Image style={styles.avatar} source={{uri: profile.avatar}} />
-      <View style={styles.cell}>
-        <Text value={profile.name} style={styles.name} />
-        <Text value={profile.country} style={styles.country} />
-      </View>
-      <View style={styles.cell}>
-        <Text value={profile.rank} style={styles.rank} />
-        <Text value={`${profile.rate}%`} style={styles.rate} />
+    <View style={[styles.wrapper, {paddingTop}]}>
+      <View style={styles.container}>
+        <Image style={styles.avatar} source={{uri: profile.avatar}} />
+        <View style={styles.cell}>
+          <Text value={profile.name} style={styles.name} />
+          <Text value={profile.country} style={styles.country} />
+        </View>
+        <View style={styles.cell}>
+          <Text value={profile.rank} style={styles.rank} />
+          <Text value={`${profile.rate}%`} style={styles.rate} />
+        </View>
       </View>
     </View>
   );
@@ -37,10 +42,13 @@ const size = rem(40);
 
 const styles = StyleSheet.create({
   wrapper: {
+    backgroundColor: '#ccc',
+  },
+  container: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: rem(10),
-    backgroundColor: '#ccc',
+    paddingVertical: rem(10),
   },
   avatar: {
     width: size,

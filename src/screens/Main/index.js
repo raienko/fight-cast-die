@@ -1,21 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Spinner from 'src/components/Spinner';
 import Wrapper from './Wrapper';
 import MyStats from './MyStats';
 import Controls from './Controls';
-import Invitations from './Invitations';
-import Promotions from './Promotions';
-import statuses from 'src/constants/statuses';
+import Campaigns from './Campaigns';
+import Achievements from './Achievements';
 
 export default function Main() {
-  const [status, setStatus] = useState(statuses.online);
-
   return (
     <Wrapper>
       <MyStats />
-      <Promotions />
-      <Invitations status={status} />
-      <Controls status={status} setStatus={setStatus} />
+      <Achievements />
+      <Campaigns />
+      <Controls />
       <Spinner visible={false} />
     </Wrapper>
   );
