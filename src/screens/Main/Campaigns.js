@@ -8,8 +8,8 @@ export default function Campaigns() {
   const campaigns = [
     {id: 'asd1230', text: 'Ice peak war', image: 'https://images7.alphacoders.com/301/thumb-350-301252.jpg'},
     {id: 'asd1213', text: 'Horn of Abyss', image: 'https://goodgame.ru/files/uploaded/news_5c4f786c5bf36.png'},
-    {id: 'asd1243', text: 'Throne of the Lord', image: 'https://images7.alphacoders.com/301/thumb-350-301252.jpg'},
-    {id: 'asd1263', text: 'Babylon', image: 'https://images7.alphacoders.com/301/thumb-350-301252.jpg'},
+    {id: 'asd1243', text: 'Frozen Throne', image: 'https://www.desktophut.ru/wp-content/uploads/2018/03/Knights_of_the_Frozen_Throne.jpg'},
+    {id: 'asd1263', text: 'Babylon', image: 'https://i.pinimg.com/originals/67/ff/c2/67ffc24441837dfed36bc1eb7698483f.jpg'},
   ];
 
   const renderPromotion = ({item}) => (
@@ -21,9 +21,11 @@ export default function Campaigns() {
 
   return (
     <View style={styles.wrapper}>
+      <Text text="campaigns.title" />
       <FlatList
         data={campaigns}
         renderItem={renderPromotion}
+        bounces={false}
       />
     </View>
   );
