@@ -4,8 +4,8 @@ import Screen from 'src/components/Screen';
 import Spinner from 'src/components/Spinner';
 import Button from 'src/components/Button';
 import Chat from './Chat';
-import Players from './Players';
-import Maps from './Maps';
+import Slots from './Slots';
+import MapSelection from './MapSelection';
 import Tools from './Tools';
 
 export default function GameSetup() {
@@ -14,8 +14,8 @@ export default function GameSetup() {
   return (
     <Screen>
       <Button text="Back" onPress={back} />
-      <Maps />
-      <Players />
+      <MapSelection />
+      <Slots />
       <Chat />
       <Tools />
       <Button text="Start" />
