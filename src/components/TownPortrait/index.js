@@ -16,7 +16,7 @@ const assets = {
   [towns.tower]: require('./tower.gif'),
 };
 
-export default function TownPortrait({town = towns.castle}) {
+export default function TownPortrait({town}) {
   return <Image source={assets[town]} style={styles.portrait} />;
 }
 
