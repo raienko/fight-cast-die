@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, FlatList, Image} from 'react-native';
+import {View, StyleSheet, FlatList} from 'react-native';
 import {rem} from 'rn-units';
 import Touchable from 'rn-units/components/Touchable';
 import Button from 'src/components/Button';
@@ -8,6 +8,7 @@ import WarBanner from 'src/components/WarBanner';
 import Row from 'src/components/Row';
 import Text from 'src/components/Text';
 import colors from 'src/constants/colors';
+import StartingBonus from './StartingBonus';
 
 const order = [
   colors.red,
@@ -38,6 +39,11 @@ export default function Slots() {
     setSlots(list);
   };
 
+  const clearSlot = (id) => {
+    const clearedList = slots.filter(i => i.id !== id);
+    setSlots(clearedList);
+  };
+
   const start = () => {
     addSlot({
       name: 'Current User',
@@ -54,7 +60,7 @@ export default function Slots() {
     });
   };
 
-  const renderSlot = ({item}) => {
+  const renderSlot = ({item, index}) => {
     const bonus = bonuses[item.bonus];
     return (
       <Row style={styles.slot}>
@@ -68,9 +74,12 @@ export default function Slots() {
           <TownPortrait town={item.town} />
         </Touchable>
         <Touchable>
-          <Image source={bonus} style={styles.bonus} />
+          <StartingBonus />
         </Touchable>
-        <Button text="Remove" />
+        {
+          index > 0
+          && <Button text="Remove" onPress={() => clearSlot(item.id)} />
+        }
       </Row>
     );
   };
