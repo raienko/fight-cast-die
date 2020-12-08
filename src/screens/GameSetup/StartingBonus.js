@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {StyleSheet, Image} from 'react-native';
+import Text from 'src/components/Text';
 import {rem} from 'rn-units';
 
 export default function StartingBonus({bonus}) {
   return (
-    <Image />
+    <Text value="StartingBonus" />
   );
 }
 

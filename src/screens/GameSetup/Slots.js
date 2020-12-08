@@ -4,27 +4,19 @@ import {rem} from 'rn-units';
 import Touchable from 'rn-units/components/Touchable';
 import Button from 'src/components/Button';
 import TownPortrait from 'src/components/TownPortrait';
+import HeroPortrait from 'src/components/HeroPortrait';
 import WarBanner from 'src/components/WarBanner';
 import Row from 'src/components/Row';
 import Text from 'src/components/Text';
 import colors from 'src/constants/colors';
 import StartingBonus from './StartingBonus';
+import order from 'src/constants/order';
 
-const order = [
-  colors.red,
-  colors.blue,
-  colors.tan,
-  colors.green,
-  colors.orange,
-  colors.purple,
-  colors.teal,
-  colors.pink,
-];
-
-const bonuses = {
-  gold: 'gold',
-  artifact: 'artifact',
-  resources: 'resources',
+const fakeUser = {
+  name: 'Current User',
+  id: 'xx1',
+  hero: 'luna',
+  town: 'castle',
 };
 
 export default function Slots() {
@@ -32,6 +24,7 @@ export default function Slots() {
 
   const addSlot = (user) => {
     const list = slots.concat({
+      ...fakeUser,
       ...user,
       color: order[slots.length],
     });
@@ -45,10 +38,7 @@ export default function Slots() {
   };
 
   const start = () => {
-    addSlot({
-      name: 'Current User',
-      id: 'xx1',
-    });
+    addSlot(fakeUser);
   };
 
   useEffect(start, []);
@@ -56,12 +46,11 @@ export default function Slots() {
   const showAddPlayerPopup = () => {
     addSlot({
       name: Date.now(),
-      id: Date.now(),
+      id: `${Date.now()}`,
     });
   };
 
   const renderSlot = ({item, index}) => {
-    const bonus = bonuses[item.bonus];
     return (
       <Row style={styles.slot}>
         <Touchable>
@@ -72,6 +61,9 @@ export default function Slots() {
         </View>
         <Touchable>
           <TownPortrait town={item.town} />
+        </Touchable>
+        <Touchable>
+          <HeroPortrait hero={item.hero} />
         </Touchable>
         <Touchable>
           <StartingBonus />
@@ -103,6 +95,7 @@ export default function Slots() {
 
 const styles = StyleSheet.create({
   wrapper: {
+    flex: 1,
     alignItems: 'center',
   },
   list: {

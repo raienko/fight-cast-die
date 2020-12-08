@@ -12,6 +12,6 @@ export default function Tools() {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
+    height: 60,
   },
 });

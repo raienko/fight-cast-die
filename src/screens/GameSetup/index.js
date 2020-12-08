@@ -7,6 +7,7 @@ import Chat from './Chat';
 import Slots from './Slots';
 import MapSelection from './MapSelection';
 import Tools from './Tools';
+import Footer from './Footer';
 
 export default function GameSetup() {
   const navigation = useNavigation();
@@ -18,7 +19,9 @@ export default function GameSetup() {
       <Slots />
       <Chat />
       <Tools />
-      <Button text="Start" />
+      <Footer>
+        <Button text="Start" />
+      </Footer>
       <Spinner visible={false} />
     </Screen>
   );
