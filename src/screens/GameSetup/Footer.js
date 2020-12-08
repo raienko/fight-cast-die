@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#000f35',
   },
   container: {
-    paddingVertical: rem(10),
+    marginVertical: rem(10),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
 });

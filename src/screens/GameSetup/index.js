@@ -18,8 +18,8 @@ export default function GameSetup() {
       <MapSelection />
       <Slots />
       <Chat />
-      <Tools />
       <Footer>
+        <Button text="Trade" />
         <Button text="Start" />
       </Footer>
       <Spinner visible={false} />
