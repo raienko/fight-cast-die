@@ -8,9 +8,12 @@ export default function TownPortrait({town}) {
   return <Image source={city.portrait} style={styles.portrait} />;
 }
 
+const width = rem(46);
+const height = width * 0.65;
+
 const styles = StyleSheet.create({
   portrait: {
-    width: rem(46),
-    height: rem(30),
+    width,
+    height,
   },
 });

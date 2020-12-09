@@ -6,7 +6,7 @@ import Button from 'src/components/Button';
 import Chat from './Chat';
 import Slots from './Slots';
 import MapSelection from './MapSelection';
-import Tools from './Tools';
+import Header from './Header';
 import Footer from './Footer';
 
 export default function GameSetup() {
@@ -14,10 +14,11 @@ export default function GameSetup() {
   const back = () => navigation.pop();
   return (
     <Screen>
-      <Button text="Back" onPress={back} />
+      <Header>
+        <Button text="Back" onPress={back} />
+      </Header>
       <MapSelection />
       <Slots />
-      <Chat />
       <Footer>
         <Button text="Trade" />
         <Button text="Start" />
