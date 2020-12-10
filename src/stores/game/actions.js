@@ -1,83 +1,33 @@
 import {wait} from 'rn-units';
 import Logger from 'rn-units/components/Logger';
-import globalStore from 'src/stores/global/index';
+import store from './index';
 import types from './types';
 
 const requestDelay = 1000;
 
-export const authWithPhoneNumber = async (phoneNumber, code) => {
-  Logger.out('Auth with phone number');
+export const createGame = async (config) => {
+  Logger.out('Creating game');
   await wait(requestDelay);
-  const token = 'fake_mobile_token';
-  Logger.in('Authorized!');
-  return globalStore.dispatch({
-    type: types.AUTHORIZE,
+  Logger.in('Game created!');
+  return store.dispatch({
+    type: types.CREATE_GAME,
     payload: {
-      token,
-    },
-  });
-};
-
-export const fetchUserProfile = async () => {
-  Logger.out('Fetch user profile');
-  await wait(requestDelay);
-  Logger.in('User profile fetched');
-  return globalStore.dispatch({
-    type: types.FETCH_PROFILE,
-    payload: {
-      profile: {
-        name: 'John Sparrow',
-        birthday: '2010123',
-        premium: false,
+      game: {
+        id: 'asdfasdfar',
+        map: 'jebus_cup',
+        players: [],
+        params: {},
+        ...config,
       },
     },
   });
 };
 
-export const updateUserProfile = async (changes) => {
-  Logger.out('Updating user profile');
+export const leaveGame = async () => {
+  Logger.out('Leaving game');
   await wait(requestDelay);
-  Logger.in('User profile updated');
-  return globalStore.dispatch({
-    type: types.FETCH_PROFILE,
-    payload: {
-      changes,
-    },
+  Logger.in('Left game!');
+  return store.dispatch({
+    type: types.LEAVE_GAME,
   });
-};
-
-export const fetchSettings = async () => {
-  Logger.out('Fetch settings');
-  await wait(requestDelay);
-  Logger.in('Settings fetched');
-  return globalStore.dispatch({
-    type: types.FETCH_PROFILE,
-    payload: {
-      settings: {
-        volume: false,
-        music: false,
-        vibration: false,
-        notifications: false,
-        language: 'en',
-      },
-    },
-  });
-};
-
-export const updateSettings = async (changes) => {
-  Logger.out('Updating settings');
-  await wait(requestDelay);
-  Logger.in('Settings updated');
-  return globalStore.dispatch({
-    type: types.FETCH_PROFILE,
-    payload: {
-      changes,
-    },
-  });
-};
-
-export const logout = async () => {
-  Logger.warn('Logout');
-  await wait(requestDelay);
-  return globalStore.dispatch({type: types.LOGOUT});
 };

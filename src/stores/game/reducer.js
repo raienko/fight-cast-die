@@ -1,36 +1,21 @@
 import types from './types';
 
 export const initialState = {
-  id: 0,
-  name: '',
-  level: '',
-  players: [],
-  state: null,
+  game: null,
 };
 
 export default (state, action) => {
   switch (action.type) {
-    case types.CREATE: {
+    case types.CREATE_GAME: {
       return {
         ...state,
-        ...action.payload.game,
+        game: action.payload.game,
       };
     }
-    case types.LOAD: {
+    case types.LEAVE_GAME: {
       return {
         ...state,
-        ...action.payload.game,
-      };
-    }
-    case types.UPDATE: {
-      return {
-        ...state,
-        ...action.payload.updates,
-      };
-    }
-    case types.REMOVE: {
-      return {
-        ...initialState,
+        game: null,
       };
     }
     default:

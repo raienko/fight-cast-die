@@ -16,6 +16,7 @@ import GameSetup from 'src/screens/GameSetup';
 import Battle from 'src/screens/Battle';
 
 import globalStore from 'src/stores/global';
+import gameStore from 'src/stores/game';
 
 const Stack = createStackNavigator();
 
@@ -50,6 +51,11 @@ const Lobby = () => (
 
 const Navigator = () => {
   const {state: globalState} = globalStore.useStore();
+  const {state: gameState} = gameStore.useStore();
+  console.log({
+    gameState,
+    globalState,
+  })
 
   const rehydrated = globalState.rehydrated;
 
@@ -61,7 +67,7 @@ const Navigator = () => {
     return <Auth />;
   }
 
-  if (!globalState.game) {
+  if (!gameState.game) {
     return <Lobby />;
   }
 

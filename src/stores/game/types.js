@@ -1,6 +1,4 @@
 export default {
-  CREATE: 'CREATE',
-  LOAD: 'LOAD',
-  UPDATE: 'UPDATE',
-  REMOVE: 'REMOVE',
+  CREATE_GAME: 'CREATE_GAME',
+  LEAVE_GAME: 'LEAVE_GAME',
 };

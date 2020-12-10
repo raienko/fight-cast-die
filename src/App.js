@@ -4,7 +4,7 @@ import globalStore from 'src/stores/global';
 import gameStore from 'src/stores/game';
 import Navigation from 'src/screens/Navigation';
 
-export default class extends React.Component {
+export default class App extends React.PureComponent {
   render() {
     return (
       <SafeAreaProvider>
