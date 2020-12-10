@@ -35,6 +35,7 @@ export default class CustomText extends React.Component {
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: 'Arial',
+    fontSize: 16,
+    fontFamily: 'PlayfairDisplaySC-Regular',
   },
 });

@@ -5,7 +5,7 @@ import {rem} from 'rn-units';
 
 export default function StartingBonus({bonus}) {
   return (
-    <Text value="StartingBonus" />
+    <Text value="BONUS" />
   );
 }
 

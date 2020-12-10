@@ -7,15 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		094A90492582C157003115E7 /* PlayfairDisplaySC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094A90432582C157003115E7 /* PlayfairDisplaySC-Regular.ttf */; };
+		094A904A2582C157003115E7 /* PlayfairDisplaySC-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094A90442582C157003115E7 /* PlayfairDisplaySC-Black.ttf */; };
+		094A904B2582C157003115E7 /* PlayfairDisplaySC-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094A90452582C157003115E7 /* PlayfairDisplaySC-BlackItalic.ttf */; };
+		094A904C2582C157003115E7 /* PlayfairDisplaySC-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094A90462582C157003115E7 /* PlayfairDisplaySC-BoldItalic.ttf */; };
+		094A904D2582C157003115E7 /* PlayfairDisplaySC-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094A90472582C157003115E7 /* PlayfairDisplaySC-Italic.ttf */; };
+		094A904E2582C157003115E7 /* PlayfairDisplaySC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 094A90482582C157003115E7 /* PlayfairDisplaySC-Bold.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		38B3709187E646DC9DBE71B0 /* CormorantUnicase-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93C590EC475B423A8E49658C /* CormorantUnicase-SemiBold.ttf */; };
 		51CFCA797AFEEFF9DD160557 /* libPods-FightCastDie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15953F5E4FC866FD7D213557 /* libPods-FightCastDie.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9860F559AF104A70B3DDAB02 /* CormorantUnicase-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30105394465A445CB3695466 /* CormorantUnicase-Bold.ttf */; };
+		99610E105F0949138E88A69F /* CormorantUnicase-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1A41CD309A54C4EA71BECCB /* CormorantUnicase-Light.ttf */; };
+		F671D6C2D4374E4ABBF22177 /* CormorantUnicase-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 634EA32B73DC491586AC3CC9 /* CormorantUnicase-Regular.ttf */; };
+		FA0123D6E097436BB9570027 /* CormorantUnicase-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93ECEB4CB61344EBA2FF9933 /* CormorantUnicase-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		094A90432582C157003115E7 /* PlayfairDisplaySC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplaySC-Regular.ttf"; path = "../assets/fonts/PlayfairDisplaySC-Regular.ttf"; sourceTree = "<group>"; };
+		094A90442582C157003115E7 /* PlayfairDisplaySC-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplaySC-Black.ttf"; path = "../assets/fonts/PlayfairDisplaySC-Black.ttf"; sourceTree = "<group>"; };
+		094A90452582C157003115E7 /* PlayfairDisplaySC-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplaySC-BlackItalic.ttf"; path = "../assets/fonts/PlayfairDisplaySC-BlackItalic.ttf"; sourceTree = "<group>"; };
+		094A90462582C157003115E7 /* PlayfairDisplaySC-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplaySC-BoldItalic.ttf"; path = "../assets/fonts/PlayfairDisplaySC-BoldItalic.ttf"; sourceTree = "<group>"; };
+		094A90472582C157003115E7 /* PlayfairDisplaySC-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplaySC-Italic.ttf"; path = "../assets/fonts/PlayfairDisplaySC-Italic.ttf"; sourceTree = "<group>"; };
+		094A90482582C157003115E7 /* PlayfairDisplaySC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplaySC-Bold.ttf"; path = "../assets/fonts/PlayfairDisplaySC-Bold.ttf"; sourceTree = "<group>"; };
 		097868A32573D87E0065A680 /* FightCastDie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = FightCastDie.entitlements; path = FightCastDie/FightCastDie.entitlements; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* FightCastDie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FightCastDie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FightCastDie/AppDelegate.h; sourceTree = "<group>"; };
@@ -25,11 +42,16 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FightCastDie/main.m; sourceTree = "<group>"; };
 		15953F5E4FC866FD7D213557 /* libPods-FightCastDie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FightCastDie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A8365D829C203AC88BCEED /* Pods-FightCastDie-FightCastDieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightCastDie-FightCastDieTests.release.xcconfig"; path = "Target Support Files/Pods-FightCastDie-FightCastDieTests/Pods-FightCastDie-FightCastDieTests.release.xcconfig"; sourceTree = "<group>"; };
+		30105394465A445CB3695466 /* CormorantUnicase-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CormorantUnicase-Bold.ttf"; path = "../assets/fonts/CormorantUnicase-Bold.ttf"; sourceTree = "<group>"; };
 		4CFCCE4DFD4DF4952E0A3A90 /* Pods-FightCastDie-FightCastDieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightCastDie-FightCastDieTests.debug.xcconfig"; path = "Target Support Files/Pods-FightCastDie-FightCastDieTests/Pods-FightCastDie-FightCastDieTests.debug.xcconfig"; sourceTree = "<group>"; };
+		634EA32B73DC491586AC3CC9 /* CormorantUnicase-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CormorantUnicase-Regular.ttf"; path = "../assets/fonts/CormorantUnicase-Regular.ttf"; sourceTree = "<group>"; };
 		6CD015980148EFFD1C43A189 /* Pods-FightCastDie-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightCastDie-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-FightCastDie-tvOSTests/Pods-FightCastDie-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		75E4EB61A45F140E203DF7B1 /* Pods-FightCastDie-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightCastDie-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-FightCastDie-tvOS/Pods-FightCastDie-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		7CAE36850656279EFBD6AE83 /* libPods-FightCastDie-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FightCastDie-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FightCastDie/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		93C590EC475B423A8E49658C /* CormorantUnicase-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CormorantUnicase-SemiBold.ttf"; path = "../assets/fonts/CormorantUnicase-SemiBold.ttf"; sourceTree = "<group>"; };
+		93ECEB4CB61344EBA2FF9933 /* CormorantUnicase-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CormorantUnicase-Medium.ttf"; path = "../assets/fonts/CormorantUnicase-Medium.ttf"; sourceTree = "<group>"; };
+		A1A41CD309A54C4EA71BECCB /* CormorantUnicase-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CormorantUnicase-Light.ttf"; path = "../assets/fonts/CormorantUnicase-Light.ttf"; sourceTree = "<group>"; };
 		A6A7586861D32FF95044A48B /* libPods-FightCastDie-FightCastDieTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FightCastDie-FightCastDieTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA91B8E9811E8A09870FF28 /* Pods-FightCastDie-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightCastDie-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-FightCastDie-tvOSTests/Pods-FightCastDie-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D80BAE7EB44413CF8D8FAB0B /* Pods-FightCastDie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightCastDie.release.xcconfig"; path = "Target Support Files/Pods-FightCastDie/Pods-FightCastDie.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +117,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BD16BCB85DB57FCBFD963DE6 /* Pods */,
+				9C601237427F4389B8CAFBFD /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -107,6 +130,24 @@
 				13B07F961A680F5B00A75B9A /* FightCastDie.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9C601237427F4389B8CAFBFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				094A90442582C157003115E7 /* PlayfairDisplaySC-Black.ttf */,
+				094A90452582C157003115E7 /* PlayfairDisplaySC-BlackItalic.ttf */,
+				094A90482582C157003115E7 /* PlayfairDisplaySC-Bold.ttf */,
+				094A90462582C157003115E7 /* PlayfairDisplaySC-BoldItalic.ttf */,
+				094A90472582C157003115E7 /* PlayfairDisplaySC-Italic.ttf */,
+				094A90432582C157003115E7 /* PlayfairDisplaySC-Regular.ttf */,
+				30105394465A445CB3695466 /* CormorantUnicase-Bold.ttf */,
+				A1A41CD309A54C4EA71BECCB /* CormorantUnicase-Light.ttf */,
+				93ECEB4CB61344EBA2FF9933 /* CormorantUnicase-Medium.ttf */,
+				634EA32B73DC491586AC3CC9 /* CormorantUnicase-Regular.ttf */,
+				93C590EC475B423A8E49658C /* CormorantUnicase-SemiBold.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		BD16BCB85DB57FCBFD963DE6 /* Pods */ = {
@@ -187,6 +228,17 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				9860F559AF104A70B3DDAB02 /* CormorantUnicase-Bold.ttf in Resources */,
+				094A904D2582C157003115E7 /* PlayfairDisplaySC-Italic.ttf in Resources */,
+				99610E105F0949138E88A69F /* CormorantUnicase-Light.ttf in Resources */,
+				094A90492582C157003115E7 /* PlayfairDisplaySC-Regular.ttf in Resources */,
+				094A904E2582C157003115E7 /* PlayfairDisplaySC-Bold.ttf in Resources */,
+				094A904A2582C157003115E7 /* PlayfairDisplaySC-Black.ttf in Resources */,
+				FA0123D6E097436BB9570027 /* CormorantUnicase-Medium.ttf in Resources */,
+				F671D6C2D4374E4ABBF22177 /* CormorantUnicase-Regular.ttf in Resources */,
+				38B3709187E646DC9DBE71B0 /* CormorantUnicase-SemiBold.ttf in Resources */,
+				094A904C2582C157003115E7 /* PlayfairDisplaySC-BoldItalic.ttf in Resources */,
+				094A904B2582C157003115E7 /* PlayfairDisplaySC-BlackItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
