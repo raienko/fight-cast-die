@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/native';
 import Screen from 'src/components/Screen';
 import Spinner from 'src/components/Spinner';
 import Button from 'src/components/Button';
-import Chat from './Chat';
+import BackBtn from 'src/components/BackBtn';
 import Slots from './Slots';
 import MapSelection from './MapSelection';
 import Header from './Header';
@@ -15,7 +15,7 @@ export default function GameSetup() {
   return (
     <Screen>
       <Header>
-        <Button text="Back" onPress={back} />
+        <BackBtn onPress={back} />
       </Header>
       <MapSelection />
       <Slots />

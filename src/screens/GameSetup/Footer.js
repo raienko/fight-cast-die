@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {rem} from 'rn-units';
+import theme from 'src/constants/theme';
 
 export default function Footer({children}) {
   const insets = useSafeAreaInsets();
@@ -17,7 +18,7 @@ export default function Footer({children}) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#000f35',
+    backgroundColor: theme.primary,
   },
   container: {
     marginVertical: rem(10),

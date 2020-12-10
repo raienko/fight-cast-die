@@ -88,11 +88,16 @@ export default function Slots() {
         style={styles.list}
         bounces={false}
       />
-      <Button
-        text="Add"
-        onPress={showAddPlayerPopup}
-        disabled={slots.length === order.length}
-      />
+      {
+        slots.length < order.length
+        && (
+          <Button
+            text="Add"
+            onPress={showAddPlayerPopup}
+            disabled={slots.length === order.length}
+          />
+        )
+      }
     </View>
   );
 }
