@@ -3,6 +3,7 @@ import {View, StyleSheet, FlatList, Image} from 'react-native';
 import {rem} from 'rn-units';
 import Touchable from 'rn-units/components/Touchable';
 import Text from 'src/components/Text';
+import {createGame} from 'src/stores/game/actions';
 
 export default function Campaigns() {
   const campaigns = [
@@ -12,8 +13,8 @@ export default function Campaigns() {
     {id: 'asd1263', text: 'Babylon', image: 'https://i.pinimg.com/originals/67/ff/c2/67ffc24441837dfed36bc1eb7698483f.jpg'},
   ];
 
-  const renderPromotion = ({item}) => (
-    <Touchable style={[styles.container, styles.shadow]} activeOpacity={0.9}>
+  const renderCampaign = ({item}) => (
+    <Touchable style={[styles.container, styles.shadow]} activeOpacity={0.9} onPress={createGame}>
       <Image source={{uri: item.image}} style={styles.background} />
       <Text value={item.text} style={styles.text} />
     </Touchable>
@@ -24,7 +25,7 @@ export default function Campaigns() {
       <Text text="campaigns.title" />
       <FlatList
         data={campaigns}
-        renderItem={renderPromotion}
+        renderItem={renderCampaign}
         bounces={false}
       />
     </View>
