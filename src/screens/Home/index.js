@@ -5,6 +5,8 @@ import Logger from 'rn-units/components/Logger';
 import Screen from 'src/components/Screen';
 import Text from 'src/components/Text';
 import Button from 'src/components/Button';
+import Footer from 'src/components/Footer';
+import Header from 'src/components/Header';
 import Spinner from 'src/components/Spinner';
 import * as storeActions from 'src/stores/global/actions';
 
@@ -31,12 +33,14 @@ export default () => {
   return (
     <Screen>
       <View style={styles.wrapper}>
+        <Header />
         <Text text="Fight Cast Die" />
         <Button text="Phone number" onPress={signIn} />
         <Button text="Facebook" onPress={signIn} />
         <Button text="Game Center" onPress={signIn} />
         <Button text="Apple Id" onPress={signIn} />
         <Button text="Google Play" onPress={signIn} />
+        <Footer />
       </View>
       <Spinner visible={fetching} />
     </Screen>

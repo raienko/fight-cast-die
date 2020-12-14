@@ -9,14 +9,14 @@ export default () => {
   const navigation = useNavigation();
 
   const logout = () => {
-    navigation.pop();
+    navigation.back();
     storeActions.logout();
   };
 
   return (
     <View style={styles.wrapper}>
       <Text text="settings.title" />
-      <Button text="back" onPress={navigation.pop} />
+      <Button text="back" onPress={navigation.back} />
       <Button text="logout" onPress={logout} />
     </View>
   );

@@ -8,24 +8,21 @@ import {createGame} from 'src/stores/game/actions';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import H1 from 'src/components/H1';
-import Slots from './Slots';
-import MapSelection from './MapSelection';
+import PartySlots from './PartySlots';
 
-export default function GameSetup() {
+export default function PartySetup() {
   const back = () => navigation.back();
-  const start = () => createGame();
+  const next = () => navigation.navigate('GameSetup');
 
   return (
     <Screen>
       <Header>
         <BackBtn onPress={back} />
-        <H1 text="game.setup" />
+        <H1 text="party.setup" />
       </Header>
-      <MapSelection />
-      <Slots />
+      <PartySlots />
       <Footer>
-        <Button text="Trade" />
-        <Button text="Start" onPress={start} />
+        <Button text="Next" onPress={next} />
       </Footer>
       <Spinner visible={false} />
     </Screen>

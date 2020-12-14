@@ -9,7 +9,7 @@ export default () => {
   return (
     <Screen>
       <Text text="signIn.title" />
-      <Button text="login" onPress={navigation.pop} />
+      <Button text="login" onPress={navigation.back} />
     </Screen>
   );
 };
