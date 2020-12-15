@@ -5,20 +5,25 @@ enableScreens();
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Loading from 'src/screens/Loading';
 import Home from 'src/screens/Home';
-import Main from 'src/screens/Main';
+import Storyline from 'src/screens/Storyline';
 import SignUp from 'src/screens/SignUp';
 import Settings from 'src/screens/Settings';
 import Exploration from 'src/screens/Exploration';
 import PartySetup from 'src/screens/PartySetup';
 import GameSetup from 'src/screens/GameSetup';
 import Friends from 'src/screens/Friends';
+import Lobby from 'src/screens/Lobby';
 import Battle from 'src/screens/Battle';
 import globalStore from 'src/stores/global';
 
+import TabBar from 'src/components/TabBar';
 import gameStore from 'src/stores/game';
+
 const Stack = createStackNavigator();
+const Tabs = createBottomTabNavigator();
 
 import {navigationRef} from './index';
 
@@ -43,14 +48,21 @@ const Game = () => (
   </Stack.Navigator>
 );
 
-const Lobby = () => (
+const Arena = () => (
   <Stack.Navigator mode="modal" headerMode="none">
-    <Stack.Screen name="Main" component={Main} />
+    <Stack.Screen name="Lobby" component={Lobby} />
     <Stack.Screen name="PartySetup" component={PartySetup} />
     <Stack.Screen name="GameSetup" component={GameSetup} />
-    <Stack.Screen name="Settings" component={Settings} />
-    <Stack.Screen name="Friends" component={Friends} />
   </Stack.Navigator>
+);
+
+const Main = () => (
+  <Tabs.Navigator initialRouteName="Storyline" tabBar={TabBar}>
+    <Tabs.Screen name="Friends" component={Friends} />
+    <Tabs.Screen name="Storyline" component={Storyline} />
+    <Tabs.Screen name="Arena" component={Arena} />
+    <Stack.Screen name="Settings" component={Settings} />
+  </Tabs.Navigator>
 );
 
 const Navigator = () => {
@@ -68,7 +80,7 @@ const Navigator = () => {
   }
 
   if (!gameState.game) {
-    return <Lobby />;
+    return <Main />;
   }
 
   return <Game />;
