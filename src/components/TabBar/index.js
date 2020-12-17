@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Touchable from 'rn-units/components/Touchable';
 import navigation from 'src/navigation';
@@ -12,7 +12,7 @@ const icons = {
   Friends: {name: 'comment-o'},
   Storyline: {name: 'bookmark-o'},
   Arena: {name: 'flag-o'},
-  Settings: {name: 'ellipsis-v'},
+  Settings: {name: 'check-square-o'},
 };
 
 export default function TabBar({state}) {
@@ -66,12 +66,12 @@ const styles = StyleSheet.create({
     borderRadius: rem(10),
   },
   tabActive: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    // backgroundColor: 'rgba(255, 255, 255, 0.1)',
   },
   icon: {
     color: theme.accent2,
   },
   active: {
-    color: theme.accent3,
+    // color: theme.accent3,
   },
 });
