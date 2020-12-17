@@ -1,42 +1,77 @@
 import React from 'react';
-import {View, FlatList, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Touchable from 'rn-units/components/Touchable';
 import navigation from 'src/navigation';
-import Text from 'src/components/Text';
 import Row from 'src/components/Row';
+import Icon from 'src/components/Icon';
 import {rem} from 'rn-units';
+import theme from 'src/constants/theme';
+
+const icons = {
+  Friends: {name: 'comment-o'},
+  Storyline: {name: 'bookmark-o'},
+  Arena: {name: 'flag-o'},
+  Settings: {name: 'ellipsis-v'},
+};
 
 export default function TabBar({state}) {
-  const renderTab = ({item, index}) => {
+  const renderTab = (item, index) => {
     const active = state.index === index;
     return (
       <Touchable
         onPress={() => navigation.navigate(item.name)}
         disabled={active}
-        style={active && styles.active}
-      >
-        <Text value={item.name} />
+        key={item.name}
+        style={[styles.tab, active && styles.tabActive]}>
+        <Icon
+          {...icons[item.name]}
+          style={[styles.icon, active && styles.active]}
+          size={rem(active ? 25 : 20)}
+        />
       </Touchable>
     );
   };
 
   return (
-    <View style={styles.wrapper}>
-      <FlatList
-        data={state.routes}
-        renderItem={renderTab}
-        horizontal
-      />
-    </View>
+    <SafeAreaView edges="bottom" style={styles.wrapper}>
+      <Row style={styles.container}>
+        {
+          state.routes.map(renderTab)
+        }
+      </Row>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   wrapper: {
-    minHeight: rem(30),
-    padding: rem(10),
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  container: {
+    borderRadius: rem(10),
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    overflow: 'hidden',
+    marginHorizontal: rem(20),
+    marginVertical: rem(10),
+  },
+  tab: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: rem(45),
+    borderRadius: rem(10),
+  },
+  tabActive: {
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  icon: {
+    color: theme.accent2,
   },
   active: {
-    backgroundColor: 'yellow',
+    color: theme.accent3,
   },
 });
