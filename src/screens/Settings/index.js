@@ -3,11 +3,11 @@ import Header from 'src/components/Header';
 import H1 from 'src/components/H1';
 import Button from 'src/components/Button';
 import Screen from 'src/components/Screen';
-import * as storeActions from 'src/stores/global/actions';
+import * as authActions from 'src/store/auth/actions';
 
 export default () => {
   const logout = () => {
-    storeActions.logout();
+    authActions.logout();
   };
 
   return (
