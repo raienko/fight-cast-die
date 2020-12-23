@@ -19,10 +19,8 @@ const hardcodedProfile = {
 
 export default function MyStats() {
   const [profile, setProfile] = useState(hardcodedProfile);
-  const insets = useSafeAreaInsets();
-  const paddingTop = insets.top;
   return (
-    <View style={[styles.wrapper, {paddingTop}]}>
+    <View style={styles.wrapper}>
       <View style={styles.container}>
         <Image style={styles.avatar} source={{uri: profile.avatar}} />
         <View style={styles.cell}>
@@ -42,7 +40,7 @@ const size = rem(40);
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#ccc',
+    borderWidth: 1,
   },
   container: {
     flexDirection: 'row',

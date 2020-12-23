@@ -1,49 +1,46 @@
 import React from 'react';
-import {Image, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import Touchable from 'rn-units/components/Touchable';
-import {rem} from 'rn-units';
-import Text from 'src/components/Text';
+import {combineStyles, rem} from 'rn-units';
 import PropTypes from 'prop-types';
-import background from './background.png';
-import backgroundDisabled from './backgroundDisabled.png';
+import Text from 'src/components/Text';
+import sizes from 'src/constants/sizes';
 
 export default class Button extends React.PureComponent {
   static propTypes = {
     text: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    style: PropTypes.any,
   };
 
   render() {
-    const {text, value, disabled, ...rest} = this.props;
+    const {text, value, style, disabled, ...rest} = this.props;
+    const genericStyle = combineStyles(styles.wrapper, disabled && styles.disabled, style);
     return (
-      <Touchable style={styles.wrapper} disabled={disabled} {...rest}>
-        <Image source={disabled ? backgroundDisabled : background} style={styles.background} />
+      <Touchable
+        style={genericStyle}
+        disabled={disabled}
+        {...rest}
+      >
         <Text text={text} value={value} style={styles.text} />
       </Touchable>
     );
   }
 }
 
-const width = rem(150);
-const height = width * 0.26;
-
 const styles = StyleSheet.create({
   wrapper: {
-    width,
-    height,
-    marginVertical: rem(5),
+    minWidth: sizes.buttonWidth,
+    height: sizes.buttonHeight,
     borderRadius: rem(3),
     alignItems: 'center',
     justifyContent: 'center',
-    padding: rem(5),
-    margin: rem(5),
+    paddingHorizontal: sizes.offset,
+    borderWidth: 1,
+    margin: sizes.offset,
   },
-  background: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    width,
-    height,
+  disabled: {
+    opacity: 0.5,
   },
   text: {
     color: '#030303',

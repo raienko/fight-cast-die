@@ -12,7 +12,7 @@ const icons = {
   Friends: {name: 'comment-o'},
   Storyline: {name: 'bookmark-o'},
   Arena: {name: 'flag-o'},
-  Settings: {name: 'check-square-o'},
+  Settings: {name: 'settings', font: Icon.fonts.Feather},
 };
 
 export default function TabBar({state}) {
@@ -23,7 +23,7 @@ export default function TabBar({state}) {
         onPress={() => navigation.navigate(item.name)}
         disabled={active}
         key={item.name}
-        style={[styles.tab, active && styles.tabActive]}>
+        style={[styles.tab, active && styles.tabActive, index && styles.divider]}>
         <Icon
           {...icons[item.name]}
           style={[styles.icon, active && styles.active]}
@@ -46,10 +46,10 @@ export default function TabBar({state}) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
+    // position: 'absolute',
+    // bottom: 0,
+    // left: 0,
+    // right: 0,
   },
   container: {
     borderRadius: rem(10),
@@ -57,19 +57,22 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginHorizontal: rem(20),
     marginVertical: rem(10),
+    borderWidth: 1,
   },
   tab: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     height: rem(45),
-    borderRadius: rem(10),
+  },
+  divider: {
+    borderLeftWidth: 1,
   },
   tabActive: {
-    // backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'rgba(55, 55, 55, 0.1)',
   },
   icon: {
-    color: theme.accent2,
+    color: theme.black,
   },
   active: {
     // color: theme.accent3,

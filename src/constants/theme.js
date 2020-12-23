@@ -1,9 +1,16 @@
 export default {
-  primary: '#dad4a6',
-  secondary: '#a1a198',
-  text: '#000',
-  accent: '#d5d8d1',
-  accent1: '#eeeeee',
-  accent2: '#5c5c51',
-  accent3: '#00be87',
+  white: '#ffffff',
+  black: '#000',
+  gray: '#9a9b9a',
+  green: '#00be87',
+};
+
+export const shadow = {
+  shadowOffset: {
+    width: 2,
+    height: 2,
+  },
+  shadowRadius: 3,
+  shadowOpacity: 1,
+  elevation: 4,
 };

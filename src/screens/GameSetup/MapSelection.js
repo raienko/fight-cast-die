@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: sizes.offset,
-    backgroundColor: theme.primary,
+    backgroundColor: theme.white,
     margin: sizes.offset,
     borderWidth: 1,
   },

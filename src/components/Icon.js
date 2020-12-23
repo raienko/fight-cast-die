@@ -19,5 +19,5 @@ Icon.fonts = {
 Icon.defaultProps = {
   size: sizes.icon,
   font: Icon.fonts.FontAwesome,
-  color: theme.secondary,
+  color: theme.black,
 };

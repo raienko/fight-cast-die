@@ -10,7 +10,7 @@ export default function Screen(params) {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: theme.primary,
+    backgroundColor: theme.white,
     paddingVertical: sizes.offset,
   },
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import {TextInput, StyleSheet} from 'react-native';
-import {combineStyles, rem} from 'rn-units';
+import {combineStyles} from 'rn-units';
+import sizes from 'src/constants/sizes';
 
 export default function CustomTextInput({style, ...rest}) {
   return (
@@ -14,11 +15,12 @@ export default function CustomTextInput({style, ...rest}) {
 
 const styles = StyleSheet.create({
   input: {
-    height: rem(20),
-    width: rem(120),
+    height: sizes.buttonHeight,
+    minWidth: sizes.buttonWidth,
     padding: 0,
-    paddingHorizontal: rem(5),
+    paddingHorizontal: sizes.offset,
     borderWidth: 1,
-    borderRadius: rem(5),
+    borderRadius: sizes.radius,
+    margin: sizes.offset,
   },
 });

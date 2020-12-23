@@ -37,5 +37,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     fontFamily: 'PlayfairDisplaySC-Regular',
+    marginBottom: 5,
   },
 });

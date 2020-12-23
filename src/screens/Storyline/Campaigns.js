@@ -14,15 +14,14 @@ export default function Campaigns() {
   ];
 
   const renderCampaign = ({item}) => (
-    <Touchable style={[styles.container, styles.shadow]} activeOpacity={0.9} onPress={createGame}>
-      <Image source={{uri: item.image}} style={styles.background} />
+    <Touchable style={styles.container} activeOpacity={0.9} onPress={createGame}>
+      {/*<Image source={{uri: item.image}} style={styles.background} />*/}
       <Text value={item.text} style={styles.text} />
     </Touchable>
   );
 
   return (
     <View style={styles.wrapper}>
-      <Text text="campaigns.title" />
       <FlatList
         data={campaigns}
         renderItem={renderCampaign}
@@ -44,21 +43,12 @@ const styles = StyleSheet.create({
     width,
     height,
     borderRadius,
-    backgroundColor: '#ccc',
+    borderWidth: 1,
     marginTop: rem(10),
     padding: rem(10),
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  shadow: {
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
-    shadowRadius: 3,
-    shadowOpacity: 1,
-    elevation: 4,
   },
   background: {
     position: 'absolute',

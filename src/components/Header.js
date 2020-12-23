@@ -3,6 +3,7 @@ import {View, StyleSheet} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {rem} from 'rn-units';
 import theme from 'src/constants/theme';
+import sizes from '../constants/sizes';
 
 export default function Header({children}) {
   const insets = useSafeAreaInsets();
@@ -18,11 +19,14 @@ export default function Header({children}) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: theme.primary,
+    backgroundColor: theme.white,
+    margin: sizes.offset,
   },
   container: {
     marginVertical: rem(10),
     flexDirection: 'row',
     alignItems: 'center',
+    borderWidth: 1,
+    padding: sizes.offset,
   },
 });

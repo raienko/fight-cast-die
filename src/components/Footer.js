@@ -18,7 +18,7 @@ export default function Footer({children}) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: theme.primary,
+    backgroundColor: theme.white,
   },
   container: {
     marginVertical: rem(10),

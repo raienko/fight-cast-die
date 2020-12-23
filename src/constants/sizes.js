@@ -9,4 +9,7 @@ export default {
     left: rem(10),
     right: rem(10),
   },
+  buttonWidth: rem(150),
+  buttonHeight: rem(30),
+  radius: rem(5),
 };
