@@ -33,7 +33,6 @@ export default () => {
   return (
     <Screen>
       <View style={styles.wrapper}>
-        <Header />
         <Text text="Fight Cast Die" />
         <Button text="Phone number" onPress={signIn} />
         <Button text="Facebook" onPress={signIn} />
