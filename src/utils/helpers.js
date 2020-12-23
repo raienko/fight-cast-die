@@ -12,9 +12,8 @@ export const getCenteringTransform = (childSize, parentSize) => [
   {translateY: -(parentSize / 2 + childSize / 2)},
 ];
 
-export const getDistance = (x1, y1, x2, y2) => Math.sqrt(
-  Math.pow(x2 - x1,2) + Math.pow(y2 - y1, 2)
-);
+export const getDistance = (x1, y1, x2, y2) =>
+  Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 
 export const share = (message) => Share.share({message});
 

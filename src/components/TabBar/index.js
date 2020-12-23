@@ -23,7 +23,11 @@ export default function TabBar({state}) {
         onPress={() => navigation.navigate(item.name)}
         disabled={active}
         key={item.name}
-        style={[styles.tab, active && styles.tabActive, index && styles.divider]}>
+        style={[
+          styles.tab,
+          active && styles.tabActive,
+          index && styles.divider,
+        ]}>
         <Icon
           {...icons[item.name]}
           style={[styles.icon, active && styles.active]}
@@ -35,11 +39,7 @@ export default function TabBar({state}) {
 
   return (
     <SafeAreaView edges="bottom" style={styles.wrapper}>
-      <Row style={styles.container}>
-        {
-          state.routes.map(renderTab)
-        }
-      </Row>
+      <Row style={styles.container}>{state.routes.map(renderTab)}</Row>
     </SafeAreaView>
   );
 }

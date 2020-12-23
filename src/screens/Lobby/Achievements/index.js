@@ -25,9 +25,7 @@ export default function Achievements() {
   };
 
   return (
-    <View style={styles.wrapper}>
-      {achiemenets.map(renderAchievement)}
-    </View>
+    <View style={styles.wrapper}>{achiemenets.map(renderAchievement)}</View>
   );
 }
 

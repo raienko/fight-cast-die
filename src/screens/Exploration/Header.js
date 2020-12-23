@@ -8,17 +8,13 @@ export default function Header({children}) {
   const paddingTop = insets.top;
   return (
     <View style={[styles.wrapper, {paddingTop}]}>
-      <View style={styles.container}>
-        {children}
-      </View>
+      <View style={styles.container}>{children}</View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-
-  },
+  wrapper: {},
   container: {
     flexDirection: 'row',
   },

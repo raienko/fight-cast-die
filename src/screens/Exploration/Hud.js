@@ -2,11 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
 export default function Hud() {
-  return (
-    <View style={styles.wrapper} pointerEvents="box-none">
-
-    </View>
-  );
+  return <View style={styles.wrapper} pointerEvents="box-none" />;
 }
 
 const styles = StyleSheet.create({

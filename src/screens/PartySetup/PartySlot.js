@@ -12,14 +12,8 @@ export default function PartySlot({user, status}) {
     <Row style={styles.wrapper}>
       <Text value={user.username} />
       <Text value={user.status} />
-      {
-        status === invitationStatuses.pending
-        && <Button text="Cancel" />
-      }
-      {
-        status === invitationStatuses.accepted
-        && <Button text="Kick" />
-      }
+      {status === invitationStatuses.pending && <Button text="Cancel" />}
+      {status === invitationStatuses.accepted && <Button text="Kick" />}
     </Row>
   );
 }

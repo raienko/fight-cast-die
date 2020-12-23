@@ -15,13 +15,13 @@ export default class Button extends React.PureComponent {
 
   render() {
     const {text, value, style, disabled, ...rest} = this.props;
-    const genericStyle = combineStyles(styles.wrapper, disabled && styles.disabled, style);
+    const genericStyle = combineStyles(
+      styles.wrapper,
+      disabled && styles.disabled,
+      style,
+    );
     return (
-      <Touchable
-        style={genericStyle}
-        disabled={disabled}
-        {...rest}
-      >
+      <Touchable style={genericStyle} disabled={disabled} {...rest}>
         <Text text={text} value={value} style={styles.text} />
       </Touchable>
     );

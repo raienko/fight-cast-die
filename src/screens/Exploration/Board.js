@@ -35,11 +35,6 @@ export default class Board extends React.Component {
     const width = tilemap[0].length * cellSize;
     const height = tilemap.length * cellSize;
 
-    return (
-      <Image
-        source={background}
-        style={{width, height}}
-      />
-    );
+    return <Image source={background} style={{width, height}} />;
   }
 }

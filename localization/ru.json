@@ -1,0 +1,12 @@
+{
+    "app_name": "Бей Кастуй Умри",
+    "button": {
+        "sign_in": "Войти",
+        "sign_up": "Регистрация"
+    },
+    "settings": {
+        "music": "Музыка",
+        "vibration": "Вибрация",
+        "notifications": "Уведомления"
+    }
+}

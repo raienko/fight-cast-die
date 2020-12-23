@@ -33,7 +33,7 @@ export default function Slots() {
   };
 
   const clearSlot = (id) => {
-    const clearedList = slots.filter(i => i.id !== id);
+    const clearedList = slots.filter((i) => i.id !== id);
     setSlots(clearedList);
   };
 
@@ -52,7 +52,7 @@ export default function Slots() {
 
   const renderSlot = ({item, index}) => {
     return (
-      <Row style={[styles.slot, { backgroundColor: item.color }]}>
+      <Row style={[styles.slot, {backgroundColor: item.color}]}>
         <Touchable>
           <WarBanner color={item.color} />
         </Touchable>
@@ -68,14 +68,11 @@ export default function Slots() {
         <Touchable>
           <StartingBonus />
         </Touchable>
-        {
-          index > 0
-          && (
-            <Touchable onPress={() => clearSlot(item.id)}>
-              <Icon name="times" style={styles.cross} color="red" />
-            </Touchable>
-          )
-        }
+        {index > 0 && (
+          <Touchable onPress={() => clearSlot(item.id)}>
+            <Icon name="times" style={styles.cross} color="red" />
+          </Touchable>
+        )}
       </Row>
     );
   };
@@ -88,16 +85,13 @@ export default function Slots() {
         style={styles.list}
         bounces={false}
       />
-      {
-        slots.length < order.length
-        && (
-          <Button
-            text="Add"
-            onPress={showAddPlayerPopup}
-            disabled={slots.length === order.length}
-          />
-        )
-      }
+      {slots.length < order.length && (
+        <Button
+          text="Add"
+          onPress={showAddPlayerPopup}
+          disabled={slots.length === order.length}
+        />
+      )}
     </View>
   );
 }

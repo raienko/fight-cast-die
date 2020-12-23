@@ -2,16 +2,18 @@ import React from 'react';
 import {TextInput, StyleSheet} from 'react-native';
 import {combineStyles} from 'rn-units';
 import sizes from 'src/constants/sizes';
+import localization, {updateOnLanguageChange} from 'localization';
 
-export default function CustomTextInput({style, ...rest}) {
+export default updateOnLanguageChange(function CustomTextInput({ style, placeholder, ...rest}) {
   return (
     <TextInput
       {...rest}
       style={combineStyles(styles.input, style)}
+      placeholder={placeholder ? localization.t(placeholder) : ''}
       allowFontScaling={false}
     />
   );
-}
+});
 
 const styles = StyleSheet.create({
   input: {

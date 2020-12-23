@@ -7,7 +7,8 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 const hardcodedProfile = {
   id: 'asd',
   name: 'Doppelgander',
-  avatar: 'https://mafii.net/uploads/avatars//full/17Oct2016_08-39-24sand_ro.png',
+  avatar:
+    'https://mafii.net/uploads/avatars//full/17Oct2016_08-39-24sand_ro.png',
   rank: 12,
   win: 123,
   loose: 111,

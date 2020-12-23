@@ -10,9 +10,7 @@ export default function Header({children}) {
   const paddingTop = insets.top + rem(10);
   return (
     <View style={[styles.wrapper, {paddingTop}]}>
-      <View style={styles.container}>
-        {children}
-      </View>
+      <View style={styles.container}>{children}</View>
     </View>
   );
 }

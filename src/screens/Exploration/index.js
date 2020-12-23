@@ -20,10 +20,7 @@ export default () => {
       </Header>
       <Canvas>
         <Viewport>
-          <Board
-            tilemap={level.tilemap}
-            background={level.background}
-          />
+          <Board tilemap={level.tilemap} background={level.background} />
           <Mobs mobsmap={level.mobsmap} />
         </Viewport>
         <Hud />

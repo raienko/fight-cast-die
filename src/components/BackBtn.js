@@ -6,7 +6,11 @@ import sizes from 'src/constants/sizes';
 
 export default function BackBtn({disabled, ...rest}) {
   return (
-    <Touchable disabled={disabled} {...rest} hitSlop={sizes.hitSlop} style={styles.wrapper}>
+    <Touchable
+      disabled={disabled}
+      {...rest}
+      hitSlop={sizes.hitSlop}
+      style={styles.wrapper}>
       <Icon name="chevron-left" style={styles.icon} />
     </Touchable>
   );

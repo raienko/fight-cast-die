@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export const navigationRef = React.createRef();
 
-export default ({
+export default {
   navigate: (name, params) => navigationRef.current?.navigate(name, params),
   back: () => navigationRef.current?.goBack(),
   getCurrentScreen: () => navigationRef.current?.getCurrentRoute()?.name,
@@ -12,4 +12,4 @@ export default ({
     const params = navigationRef.current?.getCurrentRoute()?.params;
     return params?.[key];
   },
-});
+};

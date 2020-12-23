@@ -5,10 +5,7 @@ import PartySlot from './PartySlot';
 
 export default function PartySlots({slots}) {
   const renderSlot = ({item}) => (
-    <PartySlot
-      user={item.user}
-      status={item.status}
-    />
+    <PartySlot user={item.user} status={item.status} />
   );
 
   return (

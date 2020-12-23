@@ -20,8 +20,11 @@ export default function Lobby() {
       <Achievements />
       <Controls />
       <Footer>
-        <Button text="search" onPress={() => navigation.navigate('PartySetup')} />
+        <Button
+          text="search"
+          onPress={() => navigation.navigate('PartySetup')}
+        />
       </Footer>
     </Screen>
   );
-};
+}

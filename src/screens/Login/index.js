@@ -16,9 +16,9 @@ export default function Login() {
 
   return (
     <Screen>
-      <Text text="login.title" />
-      <Button text="login.sign_in_with_phone" onPress={signInWithPhone} />
-      <Button text="login.sign_up" onPress={signUp} />
+      <Text text="app_name" />
+      <Button text="button.use_phone_number" onPress={signInWithPhone} />
+      <Button text="button.sign_up" onPress={signUp} />
       <Footer />
     </Screen>
   );

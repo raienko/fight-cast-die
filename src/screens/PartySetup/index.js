@@ -27,4 +27,4 @@ export default function PartySetup() {
       <Spinner visible={false} />
     </Screen>
   );
-};
+}

@@ -17,16 +17,9 @@ export default function Controls() {
 
   return (
     <Row>
-      {
-        playing
-        && <Button text="Abandon" onPress={() => setPlaying(false)} />
-      }
-      {
-        !playing && <Button text="Create" onPress={create}/>
-      }
-      {
-        playing && <Button text="Resume" onPress={resume}/>
-      }
+      {playing && <Button text="Abandon" onPress={() => setPlaying(false)} />}
+      {!playing && <Button text="Create" onPress={create} />}
+      {playing && <Button text="Resume" onPress={resume} />}
     </Row>
   );
 }

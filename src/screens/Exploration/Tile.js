@@ -19,10 +19,7 @@ export default function Tile({source, size = 1, onPress, disabled, position}) {
 
   const translate = half - half * size;
   const transform = {
-    transform: [
-      { translateX: translate },
-      { translateY: translate },
-    ],
+    transform: [{translateX: translate}, {translateY: translate}],
   };
 
   const Renderer = source?.w ? LottieView : Image;
@@ -34,12 +31,7 @@ export default function Tile({source, size = 1, onPress, disabled, position}) {
       disabled={disabled}
       delay={100}>
       <View style={transform}>
-        <Renderer
-          style={proportions}
-          source={source}
-          autoPlay
-          autoSize
-        />
+        <Renderer style={proportions} source={source} autoPlay autoSize />
       </View>
     </Touchable>
   );

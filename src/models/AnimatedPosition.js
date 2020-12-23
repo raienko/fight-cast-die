@@ -39,7 +39,7 @@ export default class AnimatedPosition {
       const currentX = index ? path[index - 1].x : this.x;
       const currentY = index ? path[index - 1].y : this.y;
       const distance = getDistance(currentX, currentY, point.x, point.y);
-      const duration = (distance * cellSize * 10) * speed;
+      const duration = distance * cellSize * 10 * speed;
       return Animated.timing(this._offset, {
         toValue: getCoordinates(point.x, point.y),
         easing: Easing.linear,

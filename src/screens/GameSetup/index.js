@@ -30,4 +30,4 @@ export default function GameSetup() {
       <Spinner visible={false} />
     </Screen>
   );
-};
+}

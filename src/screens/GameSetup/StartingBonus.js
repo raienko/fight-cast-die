@@ -4,9 +4,7 @@ import Text from 'src/components/Text';
 import {rem} from 'rn-units';
 
 export default function StartingBonus({bonus}) {
-  return (
-    <Text value="BONUS" />
-  );
+  return <Text value="BONUS" />;
 }
 
 const styles = StyleSheet.create({

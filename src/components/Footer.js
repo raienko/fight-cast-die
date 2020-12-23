@@ -9,9 +9,7 @@ export default function Footer({children}) {
   const paddingBottom = insets.bottom + rem(10);
   return (
     <View style={[styles.wrapper, {paddingBottom}]}>
-      <View style={styles.container}>
-        {children}
-      </View>
+      <View style={styles.container}>{children}</View>
     </View>
   );
 }

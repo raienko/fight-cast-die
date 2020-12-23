@@ -1,0 +1,13 @@
+{
+    "app_name": "Fight Cast Die",
+    "button": {
+        "sign_in": "Sign in",
+        "sign_up": "Sign up",
+        "use_phone_number": "Use phone number"
+    },
+    "settings": {
+        "music": "Music",
+        "vibration": "Vibration",
+        "notifications": "Notifications"
+    }
+}
