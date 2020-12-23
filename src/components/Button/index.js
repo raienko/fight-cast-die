@@ -8,7 +8,7 @@ import sizes from 'src/constants/sizes';
 
 export default class Button extends React.PureComponent {
   static propTypes = {
-    text: PropTypes.string.isRequired,
+    text: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     style: PropTypes.any,
   };

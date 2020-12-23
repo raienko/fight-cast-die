@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from 'src/components/Button';
 import * as settingsActions from 'src/store/settings/actions';
+import {rem} from 'rn-units';
 
 const mapStateToProps = (state) => ({
   language: state.settings.language,
@@ -12,8 +13,9 @@ const mapStateToProps = (state) => ({
 function LanguagePanel() {
   return (
     <View style={styles.wrapper}>
-      <Button text="ru" onPress={() => settingsActions.changeLanguage('ru')} />
-      <Button text="en" onPress={() => settingsActions.changeLanguage('en')} />
+      <Button value="🇺🇸" style={styles.btn} onPress={() => settingsActions.changeLanguage('en')} />
+      <Button value="🇷🇺" style={styles.btn} onPress={() => settingsActions.changeLanguage('ru')} />
+      <Button value="🇺🇦" style={styles.btn} onPress={() => settingsActions.changeLanguage('ua')} />
     </View>
   );
 }
@@ -28,5 +30,9 @@ const styles = StyleSheet.create({
   wrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  btn: {
+    width: rem(60),
+    minWidth: undefined,
   },
 });
