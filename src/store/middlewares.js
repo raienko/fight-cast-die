@@ -4,7 +4,10 @@ import localization from 'localization';
 
 const rehydrationHandler = () => next => action => {
   if (action.type === 'persist/REHYDRATE') {
-    localization.changeLanguage(action.payload.settings.language);
+    const language = action.payload?.settings?.language;
+    if (language) {
+      localization.changeLanguage(language);
+    }
   }
   return next(action);
 };

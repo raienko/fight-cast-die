@@ -10,6 +10,7 @@
     "test": "jest",
     "lint": "eslint .",
     "start_without_cache": "npm start -- --reset-cache",
+    "full_clean": "watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install && yarn start -- --reset-cache",
     "postinstall": "cd ios && pod install"
   },
   "dependencies": {
