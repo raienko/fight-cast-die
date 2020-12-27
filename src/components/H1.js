@@ -12,6 +12,7 @@ export default function H1({style, ...rest}) {
 const styles = StyleSheet.create({
   text: {
     fontSize: rem(30),
+    fontWeight: 'bold',
     marginHorizontal: sizes.offset,
   },
 });

@@ -33,8 +33,7 @@ const styles = StyleSheet.create({
   wrapper: {
     minWidth: sizes.buttonWidth,
     height: sizes.buttonHeight,
-    borderColor: theme.blue,
-    borderWidth: 1,
+    backgroundColor: theme.black,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: sizes.offset,
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   text: {
-    color: theme.black,
+    color: theme.white,
     fontWeight: 'bold',
     fontSize: 20,
     textTransform: 'uppercase',

@@ -1,32 +1,41 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import * as authActions from 'src/store/auth/actions';
 import navigation from 'src/navigation';
 import Screen from 'src/components/Screen';
-import Text from 'src/components/Text';
+import H1 from 'src/components/H1';
 import Button from 'src/components/Button';
 import Footer from 'src/components/Footer';
+import SettingsBtn from 'src/components/SettingsBtn';
+import Header from 'src/components/Header';
 
 export default function Login() {
-  const signInWithPhone = async () => {
-    navigation.navigate('SignInWithPhone');
+  const signIn = async () => {
+    authActions.auth();
   };
 
   const signUp = async () => {
-    navigation.navigate('SignUp');
+    authActions.auth();
   };
 
   return (
-    <Screen style={styles.wrapper}>
-      <Text text="app_name" />
-      <Button text="button.use_phone_number" onPress={signInWithPhone} />
-      <Button text="button.sign_up" onPress={signUp} />
+    <Screen>
+      <Header>
+        <H1 text="app_name" />
+        <SettingsBtn onPress={() => navigation.navigate('Settings')} />
+      </Header>
+      <View style={styles.container}>
+        <Button text="button.sign_in" onPress={signIn} />
+        <Button text="button.sign_up" onPress={signUp} />
+      </View>
       <Footer />
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
+  container: {
+    flex: 1,
     justifyContent: 'flex-end',
   },
 });

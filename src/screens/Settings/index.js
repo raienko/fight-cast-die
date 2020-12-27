@@ -14,6 +14,7 @@ import LanguagePanel from './LanguagePanel';
 
 const mapStateToProps = (state) => ({
   settings: state.settings,
+  token: state.auth.token,
 });
 
 export default connect(mapStateToProps)(
@@ -37,8 +38,13 @@ export default connect(mapStateToProps)(
       return settingsActions.toggleNotifications(!settings.notifications);
     };
 
+    logout = () => {
+      navigation.back();
+      return authActions.logout();
+    };
+
     render() {
-      const {settings} = this.props;
+      const {settings, token} = this.props;
       return (
         <Screen>
           <Header>
@@ -49,7 +55,9 @@ export default connect(mapStateToProps)(
           <Toggle text="settings.music" value={settings.music} onPress={this.toggleMusic} />
           <Toggle text="settings.vibration" value={settings.vibration} onPress={this.toggleVibration} />
           <Toggle text="settings.notifications" value={settings.notifications} onPress={this.toggleNotifications} />
-          <Button text="logout" onPress={authActions.logout} />
+          {
+            !!token && <Button text="logout" onPress={this.logout} />
+          }
         </Screen>
       );
     }

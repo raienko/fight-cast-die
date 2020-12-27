@@ -55,8 +55,11 @@ const styles = StyleSheet.create({
   btn: {
     width: rem(60),
     minWidth: undefined,
+    backgroundColor: theme.white,
+    borderColor: theme.black,
   },
   btnActive: {
-    backgroundColor: theme.blue,
-  }
+    backgroundColor: theme.yellow,
+    borderColor: theme.yellow,
+  },
 });
