@@ -1,5 +1,6 @@
 import React from 'react';
 import mobs from 'src/mobs';
+import navigation from 'src/navigation';
 import Tile from './Tile';
 
 export default function Mobs({mobsmap}) {
@@ -9,6 +10,7 @@ export default function Mobs({mobsmap}) {
       size={mobs[mob.type].size}
       source={mobs[mob.type].tile}
       position={{x: mob.x, y: mob.y}}
+      onPress={() => navigation.navigate('Battle')}
     />
   ));
 }
