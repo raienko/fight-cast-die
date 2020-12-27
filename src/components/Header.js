@@ -1,30 +1,30 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {rem} from 'rn-units';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {combineStyles, rem} from 'rn-units';
 import theme from 'src/constants/theme';
-import sizes from '../constants/sizes';
+import sizes from 'src/constants/sizes';
 
-export default function Header({children}) {
-  const insets = useSafeAreaInsets();
-  const paddingTop = insets.top + rem(10);
+export default function Header({children, style}) {
   return (
-    <View style={[styles.wrapper, {paddingTop}]}>
+    <SafeAreaView
+      mode="padding"
+      edges={['top']}
+      style={combineStyles(styles.wrapper, style)}
+    >
       <View style={styles.container}>{children}</View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: theme.white,
-    margin: sizes.offset,
+    backgroundColor: theme.yellow,
   },
   container: {
     marginVertical: rem(10),
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
     padding: sizes.offset,
   },
 });

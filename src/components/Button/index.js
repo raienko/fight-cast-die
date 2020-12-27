@@ -1,10 +1,11 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import Touchable from 'rn-units/components/Touchable';
-import {combineStyles, rem} from 'rn-units';
+import {combineStyles} from 'rn-units';
 import PropTypes from 'prop-types';
 import Text from 'src/components/Text';
 import sizes from 'src/constants/sizes';
+import theme from 'src/constants/theme';
 
 export default class Button extends React.PureComponent {
   static propTypes = {
@@ -32,18 +33,18 @@ const styles = StyleSheet.create({
   wrapper: {
     minWidth: sizes.buttonWidth,
     height: sizes.buttonHeight,
-    borderRadius: rem(3),
+    borderColor: theme.blue,
+    borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: sizes.offset,
-    borderWidth: 1,
     margin: sizes.offset,
   },
   disabled: {
     opacity: 0.5,
   },
   text: {
-    color: '#030303',
+    color: theme.black,
     fontWeight: 'bold',
     fontSize: 20,
     textTransform: 'uppercase',

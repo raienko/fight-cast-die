@@ -2,29 +2,50 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {rem} from 'rn-units';
+import theme from 'src/constants/theme';
 import Button from 'src/components/Button';
 import * as settingsActions from 'src/store/settings/actions';
-import {rem} from 'rn-units';
+
+const languages = {
+  en: '🇺🇸',
+  ru: '🇷🇺',
+  ua: '🇺🇦',
+};
 
 const mapStateToProps = (state) => ({
   language: state.settings.language,
 });
 
-function LanguagePanel() {
-  return (
-    <View style={styles.wrapper}>
-      <Button value="🇺🇸" style={styles.btn} onPress={() => settingsActions.changeLanguage('en')} />
-      <Button value="🇷🇺" style={styles.btn} onPress={() => settingsActions.changeLanguage('ru')} />
-      <Button value="🇺🇦" style={styles.btn} onPress={() => settingsActions.changeLanguage('ua')} />
-    </View>
-  );
-}
+export default connect(mapStateToProps)(class LanguagePanel extends React.PureComponent {
+  static propTypes = {
+    language: PropTypes.string,
+  };
 
-LanguagePanel.propTypes = {
-  language: PropTypes.string,
-};
+  renderBtn = (locale) => {
+    const {language} = this.props;
+    const active = locale === language;
+    return (
+      <Button
+        key={locale}
+        value={languages[locale]}
+        style={[styles.btn, active && styles.btnActive]}
+        onPress={() => settingsActions.changeLanguage(locale)}
+      />
+    );
+  };
 
-export default connect(mapStateToProps)(LanguagePanel);
+  render() {
+    const locales = Object.keys(languages);
+    return (
+      <View style={styles.wrapper}>
+        {
+          locales.map(this.renderBtn)
+        }
+      </View>
+    );
+  }
+});
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -35,4 +56,7 @@ const styles = StyleSheet.create({
     width: rem(60),
     minWidth: undefined,
   },
+  btnActive: {
+    backgroundColor: theme.blue,
+  }
 });

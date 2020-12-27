@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, StyleSheet, FlatList, Image} from 'react-native';
+import {View, StyleSheet, FlatList} from 'react-native';
 import {rem} from 'rn-units';
 import Touchable from 'rn-units/components/Touchable';
 import Text from 'src/components/Text';
-import {createGame} from 'src/stores/game/actions';
+import * as gameActions from 'src/store/game/actions';
 
 export default function Campaigns() {
   const campaigns = [
@@ -35,7 +35,7 @@ export default function Campaigns() {
     <Touchable
       style={styles.container}
       activeOpacity={0.9}
-      onPress={createGame}>
+      onPress={gameActions.createGame}>
       {/*<Image source={{uri: item.image}} style={styles.background} />*/}
       <Text value={item.text} style={styles.text} />
     </Touchable>
@@ -48,22 +48,19 @@ export default function Campaigns() {
   );
 }
 
-const width = rem(365);
 const height = rem(120);
-const borderRadius = rem(10);
 
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    backgroundColor: '#ccc',
   },
   container: {
-    width,
+    flex: 1,
     height,
-    borderRadius,
-    borderWidth: 1,
-    marginTop: rem(10),
+    borderBottomWidth: 1,
+    borderColor: '#ddd',
     padding: rem(10),
-    alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -71,9 +68,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     top: 0,
-    width,
-    height,
-    borderRadius,
+    bottom: 0,
+    right: 0,
   },
   text: {
     padding: rem(10),

@@ -1,7 +1,6 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {combineStyles} from 'rn-units';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import PropTypes from 'prop-types';
 import theme from 'src/constants/theme';
 
@@ -19,9 +18,9 @@ export default class Screen extends React.PureComponent {
   render() {
     const {children, style} = this.props;
     return (
-      <SafeAreaView mode="padding" style={combineStyles(styles.wrapper, style)}>
+      <View style={combineStyles(styles.wrapper, style)}>
         {children}
-      </SafeAreaView>
+      </View>
     );
   }
 }

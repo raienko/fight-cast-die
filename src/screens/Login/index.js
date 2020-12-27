@@ -1,4 +1,5 @@
 import React from 'react';
+import {StyleSheet} from 'react-native';
 import navigation from 'src/navigation';
 import Screen from 'src/components/Screen';
 import Text from 'src/components/Text';
@@ -15,7 +16,7 @@ export default function Login() {
   };
 
   return (
-    <Screen>
+    <Screen style={styles.wrapper}>
       <Text text="app_name" />
       <Button text="button.use_phone_number" onPress={signInWithPhone} />
       <Button text="button.sign_up" onPress={signUp} />
@@ -23,3 +24,9 @@ export default function Login() {
     </Screen>
   );
 }
+
+const styles = StyleSheet.create({
+  wrapper: {
+    justifyContent: 'flex-end',
+  },
+});

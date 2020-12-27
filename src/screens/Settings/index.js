@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Header from 'src/components/Header';
 import H1 from 'src/components/H1';
 import Button from 'src/components/Button';
+import BackBtn from 'src/components/BackBtn';
+import navigation from 'src/navigation';
 import Screen from 'src/components/Screen';
 import Toggle from 'src/components/Toggle';
 import * as authActions from 'src/store/auth/actions';
@@ -40,6 +42,7 @@ export default connect(mapStateToProps)(
       return (
         <Screen>
           <Header>
+            <BackBtn onPress={() => navigation.back()} />
             <H1 text="settings.title" />
           </Header>
           <LanguagePanel />

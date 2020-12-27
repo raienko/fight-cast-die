@@ -8,7 +8,7 @@ import Mobs from './Mobs';
 import Hud from './Hud';
 import Header from './Header';
 import Footer from './Footer';
-import {leaveGame} from 'src/stores/game/actions';
+import * as gameActions from 'src/store/game/actions';
 import BackBtn from 'src/components/BackBtn';
 
 export default () => {
@@ -16,7 +16,7 @@ export default () => {
   return (
     <Screen>
       <Header>
-        <BackBtn onPress={leaveGame} />
+        <BackBtn onPress={gameActions.leaveGame} />
       </Header>
       <Canvas>
         <Viewport>
@@ -25,7 +25,7 @@ export default () => {
         </Viewport>
         <Hud />
       </Canvas>
-      <Footer />
+      {/*<Footer />*/}
     </Screen>
   );
 };

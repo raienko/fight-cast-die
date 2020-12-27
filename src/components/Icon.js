@@ -1,4 +1,7 @@
 import React from 'react';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -11,6 +14,9 @@ export default function Icon({font, ...rest}) {
 }
 
 Icon.fonts = {
+  AntDesign,
+  EvilIcons,
+  MaterialCommunityIcons,
   FontAwesome,
   Ionicons,
   Feather,

@@ -10,6 +10,6 @@ export default {
     right: rem(10),
   },
   buttonWidth: rem(150),
-  buttonHeight: rem(30),
+  buttonHeight: rem(40),
   radius: rem(5),
 };
