@@ -43,7 +43,7 @@ export default function Campaigns() {
 
   return (
     <View style={styles.wrapper}>
-      <FlatList data={campaigns} renderItem={renderCampaign} bounces={false} />
+      <FlatList data={campaigns} renderItem={renderCampaign} />
     </View>
   );
 }
@@ -53,16 +53,18 @@ const height = rem(120);
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: '#ccc',
+    backgroundColor: '#eee',
   },
   container: {
     flex: 1,
     height,
-    borderBottomWidth: 1,
-    borderColor: '#ddd',
+    borderRadius: rem(5),
     padding: rem(10),
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#a0bbe0',
+    marginHorizontal: rem(5),
+    marginTop: rem(5),
   },
   background: {
     position: 'absolute',
