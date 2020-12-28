@@ -12,9 +12,28 @@ import Viewport from './Viewport';
 import Board from './Board';
 import Mobs from './Mobs';
 import Hud from './Hud';
+import Character from 'src/components/Character';
+
+const player = React.createRef();
 
 export default () => {
   const level = levels.forest_1;
+  React.useEffect(() => {
+    setTimeout(async () => {
+      await player.current.rotate(-50, 100);
+      await player.current.move({x: 100, y: 100}, 100);
+      await player.current.follow([
+        {x: 100, y: 100},
+        {x: 200, y: 200},
+        {x: 300, y: 300},
+        {x: 200, y: 400},
+        {x: 100, y: 300},
+        {x: 200, y: 200},
+        {x: 200, y: 100},
+      ]);
+    }, 1000);
+  }, []);
+
   return (
     <Screen>
       <Header>
@@ -26,6 +45,7 @@ export default () => {
         <Viewport>
           <Board tilemap={level.tilemap} background={level.background} />
           <Mobs mobsmap={level.mobsmap} />
+          <Character ref={player} />
         </Viewport>
         <Hud />
       </Canvas>
