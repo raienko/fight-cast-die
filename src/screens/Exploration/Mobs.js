@@ -1,15 +1,16 @@
 import React from 'react';
 import mobs from 'src/mobs';
 import navigation from 'src/navigation';
-import Tile from './Tile';
+import Character from 'src/components/Character';
+import {cellSize} from 'src/constants';
 
 export default function Mobs({mobsmap}) {
   return mobsmap.map((mob) => (
-    <Tile
+    <Character
       key={mob.id}
-      size={mobs[mob.type].size}
+      scale={mobs[mob.type].size}
       source={mobs[mob.type].tile}
-      position={{x: mob.x, y: mob.y}}
+      position={{x: mob.x * cellSize, y: mob.y * cellSize}}
       onPress={() => navigation.navigate('Battle')}
     />
   ));
