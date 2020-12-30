@@ -1,9 +1,10 @@
 import React from 'react';
-import {Animated, StyleSheet, Image, Easing} from 'react-native';
-import Icon from 'src/components/Icon';
-import PropTypes from 'prop-types';
-import {cellSize} from 'src/constants';
+import {Animated, StyleSheet, Image} from 'react-native';
 import Touchable from 'rn-units/components/Touchable';
+import PropTypes from 'prop-types';
+import {linearTimingAnimation} from 'src/utils/helpers';
+import Icon from 'src/components/Icon';
+import {cellSize} from 'src/constants';
 import archer from './archer.png';
 
 export default class Character extends React.PureComponent {
@@ -73,16 +74,7 @@ export default class Character extends React.PureComponent {
   move = (point, duration) => {
     this.stop();
     return new Promise((resolve) => {
-      this._animation = new Animated.timing(this._offset, {
-        toValue: {
-          x: point.x,
-          y: point.y,
-        },
-        easing: Easing.linear,
-        duration,
-        useNativeDriver: true,
-      });
-
+      this._animation = linearTimingAnimation(this._offset, point, duration);
       this._animation.start(() => resolve());
     });
   };
@@ -90,13 +82,7 @@ export default class Character extends React.PureComponent {
   rotate = (angle, duration) => {
     this.stop();
     return new Promise((resolve) => {
-      this._animation = new Animated.timing(this._rotation, {
-        toValue: angle,
-        easing: Easing.linear,
-        duration,
-        useNativeDriver: true,
-      });
-
+      this._animation = linearTimingAnimation(this._rotation, angle, duration);
       this._animation.start(() => resolve());
     });
   };
@@ -123,20 +109,10 @@ export default class Character extends React.PureComponent {
           angle = degree - 90;
         }
 
-        let rotation = new Animated.timing(this._rotation, {
-          toValue: angle,
-          duration: 300,
-          easing: Easing.linear,
-          useNativeDriver: true,
-        });
+        const rotation = linearTimingAnimation(this._rotation, angle, 300);
         animations.push(rotation);
 
-        const movement = new Animated.timing(this._offset, {
-          toValue: point,
-          duration: distance / speed,
-          easing: Easing.linear,
-          useNativeDriver: true,
-        });
+        const movement = linearTimingAnimation(this._offset, point, distance / speed);
         animations.push(movement);
       });
 

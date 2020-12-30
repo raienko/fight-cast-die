@@ -1,4 +1,4 @@
-import {Share} from 'react-native';
+import {Animated, Easing, Share} from 'react-native';
 import Clipboard from '@react-native-community/clipboard';
 import {cellSize} from 'src/constants';
 
@@ -20,3 +20,12 @@ export const share = (message) => Share.share({message});
 export const copy = async (text) => Clipboard.setString(text);
 
 export const paste = async () => Clipboard.getString();
+
+export const linearTimingAnimation = (animatedValue, toValue, duration) => {
+  return new Animated.timing(animatedValue, {
+    toValue,
+    duration,
+    easing: Easing.linear,
+    useNativeDriver: true,
+  });
+};
