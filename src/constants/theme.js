@@ -5,6 +5,7 @@ export default {
   green: '#00be87',
   yellow: '#f5cd54',
   blue: '#3273c1',
+  red: '#dd5353',
 };
 
 export const shadow = {

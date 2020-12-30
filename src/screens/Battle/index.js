@@ -6,6 +6,9 @@ import BackBtn from 'src/components/BackBtn';
 import navigation from 'src/navigation';
 import theme from 'src/constants/theme';
 import levels from 'src/levels';
+import Row from 'src/components/Row';
+import Avatar from 'src/components/Avatar';
+import StatsBox from 'src/components/StatsBox';
 import {rem} from 'rn-units';
 
 export default class Battle extends React.Component {
@@ -22,6 +25,18 @@ export default class Battle extends React.Component {
             source={level.battlefield}
             style={styles.background}
           />
+          <View style={styles.overlay}>
+            <Row style={styles.stats}>
+              <Row>
+                <Avatar />
+                <StatsBox />
+              </Row>
+              <Row style={{flexDirection: 'row-reverse'}}>
+                <Avatar />
+                <StatsBox />
+              </Row>
+            </Row>
+          </View>
         </View>
       </View>
     );
@@ -39,5 +54,14 @@ const styles = StyleSheet.create({
   background: {
     width: rem(380),
     height: rem(600),
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+  },
+  stats: {
+    justifyContent: 'space-between',
   },
 });
